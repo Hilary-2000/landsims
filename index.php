@@ -78,27 +78,17 @@ session_start();
                     <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
                     <!-- <li><a href="blog.html">Blog</a></li> -->
-                    <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                        </ul>
-                    </li> -->
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Get Demo</a></li>
+                    <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="https://lsims.ladybirdsmis.com/">Ladybird School System</a></li>
+                            <li><a href="https://libsms.ladybirdsmis.com/">Ladybird Library System</a></li>
+                            <li><a href="https://lpts.ladybirdsmis.com/">Ladybird Learning System</a></li>
+                        </ul>
+                    </li>
                     <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
-                    <li><a class="getstarted scrollto" href="lsims.ladybirdsmis.com">L-SIMS</a></li>
+                    <!-- <li><a class="getstarted scrollto" href="lsims.ladybirdsmis.com">L-SIMS</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
@@ -823,14 +813,11 @@ session_start();
 
         <!-- ======= Clients Section ======= -->
         <!-- <section id="clients" class="clients">
-
             <div class="container" data-aos="fade-up">
-
                 <header class="section-header">
-                    <h2>Our Clients</h2> -->
-        <!-- <p>Temporibus omnis officia</p> -->
-        <!-- </header>
-
+                    <h2>Our Clients</h2>
+                    <p>Temporibus omnis officia</p>
+                </header>
                 <div class="clients-slider swiper">
                     <div class="swiper-wrapper align-items-center">
                         <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
@@ -845,24 +832,18 @@ session_start();
                     <div class="swiper-pagination"></div>
                 </div>
             </div>
-
         </section> -->
         <!-- End Clients Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">
-
             <div class="container" data-aos="fade-up">
-
                 <header class="section-header">
                     <h2>Contact</h2>
                     <p >Contact Us</p>
                 </header>
-
                 <div class="row gy-4">
-
                     <div class="col-lg-6">
-
                         <div class="row gy-4">
                             <div class="col-md-6">
                                 <div class="info-box">
@@ -894,7 +875,6 @@ session_start();
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="col-lg-6">
