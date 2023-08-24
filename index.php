@@ -14,9 +14,9 @@ session_start();
     <meta content="Ladybird School Management System, Best Management System, SMIS, Ladybird SMIS, School management Systems in Kenya" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/ladybird.png" rel="icon">
+    <link href="assets/img/ladybird_dark-removebg.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link rel="shortcut icon" href="assets/img/ladybird.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/ladybird_dark-removebg.png" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -66,7 +66,7 @@ session_start();
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
         <h1 class="d-none">Ladybird School Management System</h1>
             <a href="." class="logo d-flex align-items-center">
-                <img src="assets/img/ladybird.png" alt="">
+                <img src="assets/img/ladybird_white-removebg.png" alt="">
                 <span>Ladybird</span>
             </a>
 
@@ -959,15 +959,16 @@ if (isset($_SESSION['error'])) {
                 <div class="row gy-4">
                     <div class="col-lg-5 col-md-12 footer-info">
                         <a href="." class="logo d-flex align-items-center">
-                            <img src="assets/img/ladybird.png" alt="">
+                            <img src="assets/img/ladybird_white-removebg.png" alt="">
                             <span>Ladybird</span>
                         </a>
                         <p>The all-in-one school management information system with a suite of portals for parents, students and staff, giving your school full control of all academic, financial and administrative information.</p>
                         <div class="social-links mt-3">
-                            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-                            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://www.tiktok.com/@ladybirdsmis?lang=en" target="_blank" class="twitter"><i class="bi bi-tiktok"></i></a>
+                            <a href="https://www.facebook.com/ladybirdsmis" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/ladybirdsmis/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.linkedin.com/company/ladybird-softech-co" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://www.youtube.com/@ladybirdschoolmanagementsy8323" target="_blank" class="linkedin"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
 
