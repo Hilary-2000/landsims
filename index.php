@@ -73,13 +73,13 @@ session_start();
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About Us</a></li>
+                    <li><a class="nav-link scrollto" href="#counts">Stats</a></li>
                     <li><a class="nav-link scrollto" href="#features">Features</a></li>
-                    <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-                    <li><a class="nav-link scrollto" href="#team">Team</a></li> -->
                     <!-- <li><a href="blog.html">Blog</a></li> -->
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                    <li><a class="nav-link scrollto" href="#faq">F.A.Q</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Get Demo</a></li>
+                    <li><a class="nav-link scrollto" href="timetable-generator.php">Timetable Generator <small class="badge bg-success">New</small></a></li>
                     <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="https://lsims.ladybirdsmis.com/">Ladybird School System</a></li>
@@ -134,12 +134,12 @@ session_start();
                     <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="content">
                             <h3>Who Are We</h3>
-                            <h2>We are the best School ERP System developer company in kenya which serves best its customers.</h2>
+                            <h2>We offer the best School ERP System for schools in Kenya.</h2>
                             <p>
-                                We are a software development company working hard with a mission to give solutions to 100s of schools to get digital and help them accomplish their mission and vision through it's easy to use and very advance all-in-one School Management software.
+                                Apart from it supporting other curricullums like IGCSE and ACE, Ladybird School System is fully aligned with Kenya’s Competency-Based Curriculum (CBC) requirements as set by KICD (Kenya Institute of Curriculum Development).
                             </p>
                             <p>
-                                It started with only two students in 2020 who conceptualized the idea to currently a team of full-time professional working and giving service our clients across kenya.
+                                Timetable generation has always been a tedious task, but not anymore with the Ladybird School System. Generate your timetable in minutes using our ladybird online timetable generator. Try it now <a href="timetable-generator.php" target="_blank" class="badge bg-success">Online Timatable Generator <i class="bi bi-box-arrow-up-right"></i></a>
                             </p>
                             <!-- <div class="text-center text-lg-start">
                                 <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
@@ -208,33 +208,12 @@ session_start();
             <div class="container" data-aos="fade-up">
 
                 <div class="row gy-4">
-
-                    <!-- <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="count-box">
                             <i class="bi bi-emoji-smile"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Projects</p>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-headset" style="color: #15be56;"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hours Of Support</p>
+                                <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="5" class="purecounter">+</span>
+                                <p>Happy Schools</p>
                             </div>
                         </div>
                     </div>
@@ -243,11 +222,31 @@ session_start();
                         <div class="count-box">
                             <i class="bi bi-people" style="color: #bb0852;"></i>
                             <div>
-                                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hard Workers</p>
+                                <span data-purecounter-start="0" data-purecounter-end="500000" data-purecounter-duration="5" class="purecounter"></span>
+                                <p>Registered Students</p>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-cash-stack" style="color: #ee6c20;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="1000000" data-purecounter-duration="5" class="purecounter"></span>
+                                <p>Completed Transactions</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="count-box">
+                            <i class="bi bi-headset" style="color: #15be56;"></i>
+                            <div>
+                                <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="5" class="purecounter"></span>
+                                <p>Hours Of Support</p>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -262,11 +261,14 @@ session_start();
 
                 <header class="section-header">
                     <h2>Features</h2>
-                    <p>View our features</p>
+                    <p>Only Pay for What You Need</p>
                 </header>
 
                 <div class="row">
-
+                    <div class="col-md-12">
+                        <p>Our system is made up of <u class='text-success'><b>8 modules</b></u> to help you streamline your administrative operations. These modules can be equated to the different departments you have in school.</p>
+                        <p>The benefit of having modules is that you only pay for what you need!</p>
+                    </div>
                     <div class="col-lg-6">
                         <img src="assets/img/features.png" class="img-fluid" alt="">
                     </div>
@@ -276,57 +278,57 @@ session_start();
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-shield-plus"></i>
-                                    <h3>Admission & Administration</h3>
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <h3>Administration Module</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
                                 <div class="feature-box d-flex align-items-center">
                                     <i class="bi bi-bank"></i>
-                                    <h3>Financial Management Module</h3>
+                                    <h3>Finance Module</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Reciepts Printing and report generation.</h3>
+                                    <i class="bi bi-chat-dots"></i>
+                                    <h3>Communication Module.</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>SMS fees confirmation, Students results</h3>
+                                    <i class="bi bi-mortarboard"></i>
+                                    <h3>Academic Module</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Academic Management Module</h3>
+                                    <i class="bi bi-people"></i>
+                                    <h3>Human Resource Module</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="700">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>M-Pesa intergration</h3>
+                                    <i class="bi bi-house-door"></i>
+                                    <h3>Boarding Module</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="800">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-calendar3-range"></i>
-                                    <h3>Timetable Creation And Management Module</h3>
+                                    <i class="bi bi-gear"></i>
+                                    <h3>Account Module</h3>
                                 </div>
                             </div>
 
                             <div class="col-md-6" data-aos="zoom-out" data-aos-delay="900">
                                 <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Boarding Module</h3>
+                                    <i class="bi bi-truck"></i>
+                                    <h3>Transport Module</h3>
                                 </div>
                             </div>
 
@@ -356,8 +358,8 @@ session_start();
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-box blue">
                             <i class="ri-discuss-line icon"></i>
-                            <h3>Admission & Administration</h3>
-                            <p>You can register your students and assign them an admission number or generate one automatically with the system and also manage thier information and the staff information as well.</p>
+                            <h3>Administration Module</h3>
+                            <p>A compulsory module that centralizes student, parent, and staff registration, ensuring accurate records, secure access, and smooth school operations. Students can also be assigned admission numbers manually or automatically.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -365,8 +367,8 @@ session_start();
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-box orange">
                             <i class="ri-discuss-line icon"></i>
-                            <h3>Financial Management Module</h3>
-                            <p>Record all financial information this includes: Fees paid, Record School Expenses, Staff payroll information and view all transactions done via mpesa to the institution and many more.</p>
+                            <h3>Finance Module</h3>
+                            <p>Automates fee collection through M-Pesa, sends instant confirmation messages with downloadable receipts, and delivers real-time financial visibility..</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -374,8 +376,8 @@ session_start();
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                         <div class="service-box green">
                             <i class="ri-discuss-line icon"></i>
-                            <h3>Reciepts Printing and report generation.</h3>
-                            <p>The system is capable of generating fee reciepts for all the transacions captured by the system. Generate reports such as student perfomance charts and income reports statements</p>
+                            <h3>Communication Module.</h3>
+                            <p>delivers reliable school-wide messaging with unlimited SMS for full subscribers and a generous SMS bundle for partial subscriptions of 2500 SMS per term and extras charged at Ksh 1 per sms sent.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -383,8 +385,8 @@ session_start();
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-box red">
                             <i class="ri-discuss-line icon"></i>
-                            <h3>SMS fees confirmation, Students results</h3>
-                            <p>You can send SMS to your parents showing them transaction confirmation and student new fee balance or students results.</p>
+                            <h3>Transport Module</h3>
+                            <p>Manage your fleets, the routes/zones they cover and the students enrolled in each route.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -392,8 +394,8 @@ session_start();
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-box purple">
                             <i class="ri-discuss-line icon"></i>
-                            <h3>Academic Management Module.</h3>
-                            <p>Record view and manage the students and the staff academic information.</p>
+                            <h3>Human Resource Module.</h3>
+                            <p>Manage employees information, process salaries, manage leaves and generate compliance reports like KRA, NITA, SHIF. etc.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -401,8 +403,8 @@ session_start();
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                         <div class="service-box pink">
                             <i class="ri-discuss-line icon"></i>
-                            <h3>Timetable Creation And Management Module</h3>
-                            <p>Create the school timetable. Staff can view their own timetables and print them.</p>
+                            <h3>Boarding Module</h3>
+                            <p>The Boarding Module streamlines dormitory management, enhances student safety, and ensures accurate tracking of boarding records giving you full control and parents complete peace of mind</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -410,8 +412,17 @@ session_start();
                     <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="280">
                         <div class="service-box orange">
                             <i class="ri-discuss-line icon"></i>
-                            <h3>Boarding Module</h3>
-                            <p>Assign your students their dormitory and view who has boarded in your institution or not.</p>
+                            <h3>Academic Module</h3>
+                            <p>Delivers full CBC-compliant learning management, smart assessments, and an automated timetable generator ensuring structured teaching and measurable learner progress.</p>
+                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="280">
+                        <div class="service-box blue">
+                            <i class="ri-discuss-line icon"></i>
+                            <h3>Account Module</h3>
+                            <p>Also a compulsory Module that serves as the system’s control center, managing school branding, core settings, and configurations that power all other modules.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -610,106 +621,106 @@ session_start();
 
 
         <!-- ======= Testimonials Section ======= -->
-        <!-- <section id="testimonials" class="testimonials"> -->
+        <section id="testimonials" class="testimonials">
 
-        <!-- <div class="container" data-aos="fade-up"> -->
+        <div class="container" data-aos="fade-up">
 
-        <!-- <header class="section-header">
+        <header class="section-header">
                     <h2>Testimonials</h2>
                     <p>What they are saying about us</p>
-                </header> -->
+                </header>
 
-        <!-- <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200"> -->
-        <!-- <div class="swiper-wrapper">
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
+            <div class="swiper-wrapper">
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    Its one of the best systems we have evr created.We as Ladybird have a good feeling that all our clients are suited to their needs with the system.
-                                </p>
-                                <div class="profile mt-auto">
-                                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                                    <h3>Hillary Ngige</h3>
-                                    <h4>Ceo &amp; Founder</h4>
-                                </div>
-                            </div>
-                        </div> -->
-        <!-- End testimonial item -->
-
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                            </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
-                    </div> -->
-        <!-- End testimonial item -->
-
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                            </div>
+                        <p>
+                            The system is very easy to use, and the support team is very responsive to any issues we face. Since we started using Ladybird School System, our administrative tasks have become much more efficient.
+                        </p>
+                        <div class="profile mt-auto">
+                            <img src="assets/img/Contacts.jpg" class="testimonial-img" alt="">
+                            <h3>Nelson Mogoa</h3>
+                            <h4>Headteacher Remnant Vision</h4>
                         </div>
-                    </div> -->
-        <!-- End testimonial item -->
+                    </div>
+                </div>
+                <!-- End testimonial item -->
 
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                            </div>
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                         </div>
-                    </div> -->
-        <!-- End testimonial item -->
-
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                            </div>
+                        <p>
+                            As a school administrator, I appreciate the comprehensive features of Ladybird School System. From student registration to report generation, everything is streamlined and easy to manage.
+                        </p>
+                        <div class="profile mt-auto">
+                            <img src="assets/img/Contacts.jpg" class="testimonial-img" alt="">
+                            <h3>Husseyn Zafeera</h3>
+                            <h4>Managing Director Millennium Global Int`l School</h4>
                         </div>
-                    </div> -->
-        <!-- End testimonial item -->
+                    </div>
+                </div>
+                <!-- End testimonial item -->
 
-        <!-- </div> -->
-        <!-- <div class="swiper-pagination"></div> -->
-        <!-- </div> -->
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>
+                            I love how Ladybird School System has simplified our fee collection process. The M-Pesa integration has made it so convenient for parents to pay fees, and the instant confirmation messages are a great touch.
+                        </p>
+                        <div class="profile mt-auto">
+                            <img src="assets/img/Contacts.jpg" class="testimonial-img" alt="">
+                            <h3>Kelvin Kiongora</h3>
+                            <h4>Director PCEA Ebenezer School Meru</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>
+                            The academic module has been a game-changer for our school. The CBC-compliant features have made it easy for us to align with the national curriculum, and the automated timetable generator has saved us so much time.
+                        </p>
+                        <div class="profile mt-auto">
+                            <img src="assets/img/Contacts.jpg" class="testimonial-img" alt="">
+                            <h3>Herber Makokha</h3>
+                            <h4>Managing Director Roshen Lakeview Academy</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- End testimonial item -->
+
+                <div class="swiper-slide">
+                    <div class="testimonial-item">
+                        <div class="stars">
+                            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        </div>
+                        <p>
+                            The boarding module has greatly improved our dormitory management. We can now easily track student boarding records and ensure their safety. Parents also appreciate the peace of mind that comes with knowing their children are well taken care of.
+                        </p>
+                        <div class="profile mt-auto">
+                            <img src="assets/img/Contacts.jpg" class="testimonial-img" alt="">
+                            <h3>Gladys Goiche</h3>
+                            <h4>Director Wisdom Tower Schools</h4>
+                        </div>
+                    </div>
+                </div>
+                <!-- End testimonial item -->
+
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
 
         <!-- </div> -->
 
