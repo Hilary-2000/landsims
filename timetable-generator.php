@@ -261,6 +261,7 @@ session_start();
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
                     <li><a class="nav-link scrollto" href="#guide">5 Step Guide</a></li>
+                    <li><a class="nav-link scrollto" href="#values">Why Choose Us</a></li>
                     <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
                     <li><a class="nav-link scrollto" href="index.php">Back to Ladybird SMS</a></li>
                     <li><a class="getstarted scrollto" href="#about">Sign In</a></li>
@@ -281,11 +282,11 @@ session_start();
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h1 data-aos="fade-up">Ladybird Online Timetable Generator</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">Generate class, block and teacher timetable online in just a few minutes using our robust timetable generator. <br>In just <span class="badge bg-success">5 simple</span> steps your timetable will be ready.</h2>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Generate conflict free class, block and teacher timetable online in just a few minutes using our robust timetable generator. <br>In just <span class="badge bg-success">5 simple</span> steps your timetable will be ready.</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center text-lg-start">
-                            <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                                <span>Get Started</span>
+                            <a href="timetable-signup.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                                <span>Create an Account</span>
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                             <a href="#guide" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -317,13 +318,13 @@ session_start();
                         <div class="steps-content">
                             <h2>Step 5 Guide</h2>
                             <p>This 5 step guide helps you generate your timetable efficiently and allows you to share it with your teachers, students, and the administrative circle. Once you have your information setup you will continue generating timetables as many times as you wish.</p>
+                            <p><b>Note:</b><br> Suitable for primary schools, junior and senior secondary schools <u><b>excluding</b></u> tertiary institutions.</p>
                             <div class="steps-cta">
                                 <a href="#contact" class="btn btn-primary">Create Account <i class="bi bi-arrow-right"></i></a>
                                 <a href="#about" class="btn btn-outline d-none">Learn More</a>
                             </div>
                         </div>
                     </div>
-
                     <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="300">
                         <div class="steps-list">
                             <div class="step-item">
@@ -338,7 +339,7 @@ session_start();
                                 <div class="step-number">02</div>
                                 <div class="step-content">
                                     <h3>Register Teacher & Subject/Learning Areas</h3>
-                                    <p>Register all teaching staff and the school respective learning areas.</p>
+                                    <p>Register all teaching staff and all learning areas to be included in the timetable.</p>
                                 </div>
                             </div>
 
@@ -354,7 +355,7 @@ session_start();
                                 <div class="step-number">04</div>
                                 <div class="step-content">
                                     <h3>Generate Timetable</h3>
-                                    <p>Once you have your data setup use the timetable to generate your timetable.</p>
+                                    <p>Once you have your data setup use the timetable wizard to generate your timetable.</p>
                                 </div>
                             </div>
 
@@ -362,7 +363,7 @@ session_start();
                                 <div class="step-number">05</div>
                                 <div class="step-content">
                                     <h3>Share Timetable</h3>
-                                    <p>Share your generated timetable with teachers, students, and the administrative circle.</p>
+                                    <p>Share via email your generated timetable with teachers, students, and the administrative circle.</p>
                                 </div>
                             </div>
                         </div>
@@ -375,9 +376,7 @@ session_start();
 
         <!-- ======= Values Section ======= -->
         <section id="values" class="values">
-
             <div class="container" data-aos="fade-up">
-
                 <header class="section-header">
                     <h2>Why Choose Us</h2>
                     <p>Why Ladybird Online Timetable Generator?</p>
@@ -387,15 +386,15 @@ session_start();
 
                     <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
                         <div class="box">
-                            <img src="assets/img/values-1.png" class="img-fluid" alt="">
+                            <img src="assets/img/features-2.png" class="img-fluid" alt="">
                             <h3>Conflict Free</h3>
-                            <p>Our timetable generator prevents scheduling conflicts by ensuring no teacher or classroom is double-booked.</p>
+                            <p>Our timetable generator prevents scheduling conflicts by ensuring no teacher is teaching a subjects in two or more classes at a go.</p>
                         </div>
                     </div>
 
                     <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
                         <div class="box">
-                            <img src="assets/img/values-2.png" class="img-fluid" alt="">
+                            <img src="assets/img/features.png" class="img-fluid" alt="">
                             <h3>Set Up Once Use forever</h3>
                             <p>Once you set up your information, you use it forever without initial setup everytime you want to generate your timetable.</p>
                         </div>
@@ -403,9 +402,9 @@ session_start();
 
                     <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
                         <div class="box">
-                            <img src="assets/img/values-3.png" class="img-fluid" alt="">
+                            <img src="assets/img/sharable.png" class="img-fluid" alt="">
                             <h3>Sharability</h3>
-                            <p>Ability to share your timetable with teachers, students, and the administrative circle in just one click via the e-mail. NO need for everyone to have an account to access the timetable.</p>
+                            <p>Ability to share your timetable with teachers, students, and the administrative circle in just one click via the e-mail. You can also download the pdf file on your device.</p>
                         </div>
                     </div>
 
@@ -416,228 +415,8 @@ session_start();
         </section>
         <!-- End Values Section -->
 
-        <!-- ======= Counts Section ======= -->
-        <section id="counts" class="counts">
-            <div class="container" data-aos="fade-up">
-
-                <div class="row gy-4">
-
-                    <!-- <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-emoji-smile"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Happy Clients</p>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Projects</p>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-headset" style="color: #15be56;"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hours Of Support</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-people" style="color: #bb0852;"></i>
-                            <div>
-                                <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
-                                <p>Hard Workers</p>
-                            </div>
-                        </div>
-                    </div> -->
-
-                </div>
-
-            </div>
-        </section>
-        <!-- End Counts Section -->
-
-        <!-- ======= Features Section ======= -->
-        <section id="features" class="features">
-
-            <div class="container" data-aos="fade-up">
-
-                <header class="section-header">
-                    <h2>Features</h2>
-                    <p>View our features</p>
-                </header>
-
-                <div class="row">
-
-                    <div class="col-lg-6">
-                        <img src="assets/img/features.png" class="img-fluid" alt="">
-                    </div>
-
-                    <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
-                        <div class="row align-self-center gy-4">
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-shield-plus"></i>
-                                    <h3>Admission & Administration</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-bank"></i>
-                                    <h3>Financial Management Module</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Reciepts Printing and report generation.</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>SMS fees confirmation, Students results</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Academic Management Module</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="700">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>M-Pesa intergration</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="800">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-calendar3-range"></i>
-                                    <h3>Timetable Creation And Management Module</h3>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="900">
-                                <div class="feature-box d-flex align-items-center">
-                                    <i class="bi bi-check"></i>
-                                    <h3>Boarding Module</h3>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-                <!-- / row -->
-
-            </div>
-
-        </section>
-        <!-- End Features Section -->
-
-        <!-- ======= Services Section ======= -->
-        <section id="services" class="services">
-
-            <div class="container" data-aos="fade-up">
-
-                <header class="section-header">
-                    <h2>Detailed Features</h2>
-                    <p>Understand More Of What We Offer</p>
-                </header>
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-box blue">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Admission & Administration</h3>
-                            <p>You can register your students and assign them an admission number or generate one automatically with the system and also manage thier information and the staff information as well.</p>
-                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-box orange">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Financial Management Module</h3>
-                            <p>Record all financial information this includes: Fees paid, Record School Expenses, Staff payroll information and view all transactions done via mpesa to the institution and many more.</p>
-                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-box green">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Reciepts Printing and report generation.</h3>
-                            <p>The system is capable of generating fee reciepts for all the transacions captured by the system. Generate reports such as student perfomance charts and income reports statements</p>
-                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-box red">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>SMS fees confirmation, Students results</h3>
-                            <p>You can send SMS to your parents showing them transaction confirmation and student new fee balance or students results.</p>
-                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                        <div class="service-box purple">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Academic Management Module.</h3>
-                            <p>Record view and manage the students and the staff academic information.</p>
-                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                        <div class="service-box pink">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Timetable Creation And Management Module</h3>
-                            <p>Create the school timetable. Staff can view their own timetables and print them.</p>
-                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="280">
-                        <div class="service-box orange">
-                            <i class="ri-discuss-line icon"></i>
-                            <h3>Boarding Module</h3>
-                            <p>Assign your students their dormitory and view who has boarded in your institution or not.</p>
-                            <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- End Services Section -->
-
         <!-- ======= Pricing Section ======= -->
-        <section id="pricing" class="pricing container d-none">
+        <section id="pricing" class="pricing container">
 
             <div class="container " data-aos="fade-up">
 
@@ -648,7 +427,7 @@ session_start();
 
                 <div class="row gy-4" data-aos="fade-left">
 
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="col-lg-3 col-md-6 d-none" data-aos="zoom-in" data-aos-delay="100">
                         <div class="box">
                             <!-- <span class="featured">Featured</span> -->
                             <h3 style="color: #65c600;">Starter Plan</h3>
@@ -665,7 +444,7 @@ session_start();
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="col-lg-3 col-md-6 d-none" data-aos="zoom-in" data-aos-delay="300">
                         <div class="box">
                             <span class="featured">Featured</span>
                             <h3 style="color: #ff901c;">Business Plan</h3>
@@ -682,26 +461,24 @@ session_start();
                             <a href="#" class="btn-buy">Buy Now</a>
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="col-lg-4 col-md-6"></div>
+                    <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
                         <div class="box">
                             <h3 style="color: #ff0071;">Ultimate Plan</h3>
-                            <div class="price"><sup>$</sup>300<span> / yr</span></div>
+                            <div class="price"><sup>Kes</sup>200<span> / gen</span></div>
                             <img src="assets/img/pricing-ultimate.png" class="img-fluid" alt="">
                             <ul>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Admission and Administration Module</li>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Financial Management Module</li>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Report generation and Reciept printing</li>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Academic Management Module.</li>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> SMS fees confirmation, Students results</li>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> M-Pesa intergration</li>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Boarding Module</li>
-                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> All regular Updates</li>
+                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Generate Timetable</li>
+                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> E-Mail timetable to teachers</li>
+                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Regenerate up-to 3 times</li>
+                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Download timetable in pdf</li>
+                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> In app customizations</li>
+                                <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Shared Lessons configuration</li>
                             </ul>
-                            <a href="#" class="btn-buy">Buy Now</a>
+                            <a href="#" class="btn-buy">Start Now</a>
                         </div>
                     </div>
-
+                    <div class="col-lg-4 col-md-6"></div>
                 </div>
 
             </div>
@@ -726,12 +503,12 @@ session_start();
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-1">
-                                        Whats a school Management Information System?
+                                        What is a timetable generator?
                                     </button>
                                 </h2>
                                 <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                     <div class="accordion-body">
-                                        is an administration tool for educational institutions.It aims to help educational organizations in their daily routine, by automating administrative tasks
+                                        is a system that automatically creates school timetables by assigning teachers, subjects, classes, and periods without clashes, saving time and eliminating manual errors.
                                     </div>
                                 </div>
                             </div>
@@ -739,12 +516,12 @@ session_start();
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-2">
-                                        Who can access Ladybird School Management System?
+                                        Is the timetable generator CBC-compliant?
                                     </button>
                                 </h2>
                                 <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                     <div class="accordion-body">
-                                        This school management system can be accessed by the school administrator/ Headteacher and the staff registerd and given permission to access the system. The users of Ladybird SIMS have different role to play in the system.
+                                        Yes. The timetable generator is designed to support CBC learning areas, correct lesson allocations, and grade-based requirements as guided by KICD, including junior secondary and primary levels.
                                     </div>
                                 </div>
                             </div>
@@ -752,17 +529,36 @@ session_start();
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-3">
-                                        Does the adminstrator and the staff access the same information?
+                                        Does it prevent teacher and class clashes?
                                     </button>
                                 </h2>
                                 <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
                                     <div class="accordion-body">
-                                        No! The different users with different roles in the system are limited to only whats important to them. For example a class teacher can only view the students personal and academic information only not even the financial information can be accessed by
-                                        the class teacher.
+                                        Yes. The system ensures:
+                                        <ul>
+                                            <li>A teacher is not assigned to more than one class at the same time</li>
+                                            <li>A class does not have two subjects in the same period</li>
+                                            <li>Rooms and learning areas are not double-booked</li>
+                                        </ul>
+
+                                        This guarantees a conflict-free timetable.
                                     </div>
                                 </div>
                             </div>
 
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-4">
+                                        How much does it cost?
+                                    </button>
+                                </h2>
+                                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                                    <div class="accordion-body">
+                                        The system costs only Kes 200 for one timetable set-up. You can re-generate up to 3 versions of the timetable with the same data setup.
+                                        You can send the timetable to anyone via e-mail and also download it in pdf format at any time.
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -774,12 +570,12 @@ session_start();
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-1">
-                                        Where can I access the system from?
+                                        Can it generate timetables for junior secondary (Grade 7–9)?
                                     </button>
                                 </h2>
                                 <div id="faq2-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                     <div class="accordion-body">
-                                        The system can be accessed from anywhere securely as long as there is internet connection on your device. You are not limited since we take advantage of the new technology of cloud computing
+                                        Absolutely. The system fully supports Junior Secondary School (JSS) requirements, including subject combinations and teacher specialization.
                                     </div>
                                 </div>
                             </div>
@@ -787,12 +583,12 @@ session_start();
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-2">
-                                        How many students can the system hold?
+                                        How long does it take to generate a timetable?
                                     </button>
                                 </h2>
                                 <div id="faq2-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                     <div class="accordion-body">
-                                        As many as the school can hold and manage. Student number is not limited.
+                                        In most cases, a complete timetable is generated within seconds, depending on the size of the school and the number of constraints.
                                     </div>
                                 </div>
                             </div>
@@ -800,351 +596,57 @@ session_start();
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-3">
-                                        How can I get the Ladybird School Management System?
+                                        Can the timetable be edited manually?
                                     </button>
                                 </h2>
                                 <div id="faq2-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
                                     <div class="accordion-body">
-                                        The process is simple as ABC, You make a call, we book an appointment with you anywhere in the country, or we can organize for a zoom meeting. We customize your dashboard as you wish then we give you your accounts credentials and you can start using our
-                                        system.
+                                        Yes. After generation, administrators can manually adjust lessons to accommodate special school needs such as assemblies, clubs, or remedial classes.
                                     </div>
                                 </div>
                             </div>
 
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2-content-4">
+                                        Can the timetable be shared with teachers?
+                                    </button>
+                                </h2>
+                                <div id="faq2-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist2">
+                                    <div class="accordion-body">
+                                        Yes. Timetables can be:
+                                        <ul>
+                                            <li>E-mailed directly to teachers</li>
+                                            <li>Downloaded as PDF files for distribution</li>
+                                            <li>Viewed online by the administrator</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
+                    
+                    <div class="col-md-12">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-5">
+                                    Can I get the full school management system with unlimited timetable generations?
+                                </button>
+                            </h2>
+                            <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist1">
+                                <div class="accordion-body">
+                                    Absolutely, you can get the system with unlimited timetable generations along with other modules such as admissions, financial management, academic management, communication module and many more for just 2500 per term per module. Contact us via email at <a href="mailto:mail@ladybirdsmis.com">mail@ladybirdsmis.com</a> or download our proposal that has all the information you need.
+                                    <a target="_blank" href="https://drive.google.com/drive/folders/1lPkZsdq2ryUTAQLIfnWbecSYB3VqZXbB?usp=sharing">Download Proposal</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
 
         </section>
         <!-- End F.A.Q Section -->
-
-
-        <!-- ======= Testimonials Section ======= -->
-        <!-- <section id="testimonials" class="testimonials"> -->
-
-        <!-- <div class="container" data-aos="fade-up"> -->
-
-        <!-- <header class="section-header">
-                    <h2>Testimonials</h2>
-                    <p>What they are saying about us</p>
-                </header> -->
-
-        <!-- <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200"> -->
-        <!-- <div class="swiper-wrapper">
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <div class="stars">
-                                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                                </div>
-                                <p>
-                                    Its one of the best systems we have evr created.We as Ladybird have a good feeling that all our clients are suited to their needs with the system.
-                                </p>
-                                <div class="profile mt-auto">
-                                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                                    <h3>Hillary Ngige</h3>
-                                    <h4>Ceo &amp; Founder</h4>
-                                </div>
-                            </div>
-                        </div> -->
-        <!-- End testimonial item -->
-
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
-                            </div>
-                        </div>
-                    </div> -->
-        <!-- End testimonial item -->
-
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                            </div>
-                        </div>
-                    </div> -->
-        <!-- End testimonial item -->
-
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                            </div>
-                        </div>
-                    </div> -->
-        <!-- End testimonial item -->
-
-        <!-- <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <div class="stars">
-                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                            </div>
-                            <p>
-                                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                            </p>
-                            <div class="profile mt-auto">
-                                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                            </div>
-                        </div>
-                    </div> -->
-        <!-- End testimonial item -->
-
-        <!-- </div> -->
-        <!-- <div class="swiper-pagination"></div> -->
-        <!-- </div> -->
-
-        <!-- </div> -->
-
-        </section>
-        <!-- End Testimonials Section -->
-
-        <!-- ======= Team Section ======= -->
-        <!-- <section id="team" class="team">
-
-            <div class="container" data-aos="fade-up">
-
-                <header class="section-header">
-                    <h2>Team</h2>
-                    <p>Our hard working team</p>
-                </header>
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Sarah Jhonson</h4>
-                                <span>Product Manager</span>
-                                <p>Quo esse repellendus quia id. Est eum et accusantium pariatur fugit nihil minima suscipit corporis. Voluptate sed quas reiciendis animi neque sapiente.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>William Anderson</h4>
-                                <span>CTO</span>
-                                <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut architecto porro aspernatur molestiae modi.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-                        <div class="member">
-                            <div class="member-img">
-                                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                            <div class="member-info">
-                                <h4>Amanda Jepson</h4>
-                                <span>Accountant</span>
-                                <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid doloremque ut possimus ipsum officia.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section> -->
-        <!-- End Team Section -->
-
-        <!-- ======= Clients Section ======= -->
-        <!-- <section id="clients" class="clients">
-            <div class="container" data-aos="fade-up">
-                <header class="section-header">
-                    <h2>Our Clients</h2>
-                    <p>Temporibus omnis officia</p>
-                </header>
-                <div class="clients-slider swiper">
-                    <div class="swiper-wrapper align-items-center">
-                        <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-                        <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section> -->
-        <!-- End Clients Section -->
-
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact">
-            <div class="container" data-aos="fade-up">
-                <header class="section-header">
-                    <h2>Contact</h2>
-                    <p>Contact Us</p>
-                </header>
-                <div class="row gy-4">
-                    <div class="col-lg-6">
-                        <div class="row gy-4">
-                            <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-geo-alt"></i>
-                                    <h3>Address</h3>
-                                    <p>A2 Thika Town,<br>P.O Box 853-50400</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-telephone"></i>
-                                    <h3>Call Us</h3>
-                                    <p>+254 743 551 250<br>+254 704 241 905</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-envelope"></i>
-                                    <h3>Email Us</h3>
-                                    <p>mail@ladybirdsmis.com</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="info-box">
-                                    <i class="bi bi-clock"></i>
-                                    <h3>Open Hours</h3>
-                                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
-                                    <p>Saturday <br>9:00AM - 01:00PM</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <form action="ajax/login/login.php" method="post" class="">
-                            <div class="row gy-4">
-
-                                <div class="col-md-6">
-                                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                                </div>
-
-                                <div class="col-md-6 ">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                                </div>
-
-                                <div class="col-md-12 ">
-                                    <input type="text" class="form-control" name="phone_number" placeholder="Your Phone Number" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <textarea class="form-control" name="message" rows="6" placeholder="Write a Message to us or Request demo...." required></textarea>
-                                </div>
-
-                                <div class="col-md-12 text-center">
-                                    <div><?php
-                                            if (isset($_SESSION['error'])) {
-                                                echo "<p class='border border-danger text-danger'>" . $_SESSION['error'] . "</p>";
-                                            }
-                                            if (isset($_SESSION['success'])) {
-                                                echo "<p class='border border-success text-success'>" . $_SESSION['success'] . "</p>";
-                                            }
-                                            ?></div>
-                                    <button class="btn btn-primary" type="submit">Send Message</button>
-                                </div>
-
-                            </div>
-                        </form>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-        <!-- End Contact Section -->
-        <?php
-        if (isset($_SESSION['success'])) {
-            unset($_SESSION['success']);
-        }
-        if (isset($_SESSION['error'])) {
-            unset($_SESSION['error']);
-        }
-        ?>
     </main>
     <!-- End #main -->
 

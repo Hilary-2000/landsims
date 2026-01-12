@@ -328,6 +328,242 @@ require("../../assets/encrypt/functions.php");
                 // echo "<p class='text-danger p-1 border border-danger'>Error : ". $mail->ErrorInfo."</p>";
                 $_SESSION['error'] = "<p class='text-success'>Error : ". $mail->ErrorInfo."!</p>";
             }
+        }elseif(isset($_POST['create_account'])) {
+            include ("../../connections/conn1.php");
+            unset($_SESSION['success']);
+            unset($_SESSION['error']);
+
+            // create the account and send a link to verify their email.
+            $fullname = $_POST['fullname'];
+            $email = $_POST['email'];
+            $school_name = $_POST['school_name'];
+            $phone_number = $_POST['phone_number'];
+            $school_county = $_POST['school_county'];
+            $school_country = $_POST['school_country'];
+            $username = $_POST['username'];
+            $password_1 = $_POST['password_1'];
+            $password_2 = $_POST['password_2'];
+
+            // store the user data in sessions in case of error
+            $_SESSION['fullname'] = $fullname;
+            $_SESSION['email'] = $email;
+            $_SESSION['school_name'] = $school_name;
+            $_SESSION['phone_number'] = $phone_number;
+            $_SESSION['school_county'] = $school_county;
+            $_SESSION['school_country'] = $school_country;
+            $_SESSION['username'] = $username;
+            
+            // validate the passwords
+            if ($password_1 != $password_2) {
+                $_SESSION['error'] = "<p class='text-danger'>The passwords do not match!</p>";
+                redirect("../../timetable-signup.php");
+                exit();
+            }
+
+            $secretKey = "6LcNKkgsAAAAAN2hmmVu3N6S_-Mav_eJjkHMkaNk";
+            $responseKey = $_POST['g-recaptcha-response'];
+            $userIP = $_SERVER['REMOTE_ADDR'];
+
+
+            // url
+            $url = "https://www.google.com/recaptcha/api/siteverify";
+            $data = [
+            'secret' => $secretKey,
+            'response' => $responseKey,
+            'remoteip' => $userIP
+            ];
+
+            $options = [
+                'http' => [
+                    'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data)
+                ]
+            ];
+
+            $context  = stream_context_create($options);
+            $verify = file_get_contents($url, false, $context);
+            $response = json_decode($verify);
+
+            if (!$response->success) {
+                // $_SESSION['error'] = "<p class='text-success'>Cannot complete your request at this time, try again later!</p>";
+                // redirect("../../timetable-signup.php");
+                // exit();
+            }
+
+            // check if the school exists by using the school code
+            $check_school = "SELECT * FROM `school_information` WHERE `school_code` = ?";
+            $stmt = $conn->prepare($check_school);
+            $school_code = substr($phone_number,2);
+            $stmt->bind_param("s", $school_code);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $_SESSION['error'] = "<p class='text-danger'>Account already exists, try loging in!</p>";
+                redirect("../../timetable-signup.php");
+                exit();
+            }
+
+            // check if the username exists
+            $check_username = "SELECT * FROM `user_tbl` WHERE `username` = ?";
+            $stmt = $conn->prepare($check_username);
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                $_SESSION['error'] = "<p class='text-danger'>Username already exists, try another username!</p>";
+                redirect("../../timetable-signup.php");
+                exit();
+            }
+
+            // proceed and register the school and the user
+            $insert = "INSERT INTO school_information (`school_code`, `school_name`, `sch_message_name`, `school_motto`, `school_admin_name`, `school_contact`, `school_mail`, `school_location`, `school_domain`, `database_name`, `activated`, `sch_vision`, `sch_mission`, `county`, `country`, `physicall_address`, `website_name`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $stmt = $conn->prepare($insert);
+            $school_code = substr($phone_number,2);
+            $school_db = $school_code."_db";
+            $motto = "Set Motto";
+            $n_a = "N/A";
+            $vision = "Set Vision";
+            $mission = "Set Mission";
+            $status = 0;
+            $stmt->bind_param("sssssssssssssssss",$school_code,$school_name,$n_a,$motto,$fullname,$phone_number,$email,$n_a,$n_a,$school_db,$status,$vision,$mission,$school_county,$school_country,$school_county,$n_a);
+            if ($stmt->execute()) {
+                // register the user
+                $insert = "INSERT INTO user_tbl (`fullname`, `dob`, `doe`, `school_code`, `phone_number`, `gender`, `address`, `nat_id`, `tsc_no`, `username`, `password`, `auth`, `email`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                $stmt = $conn->prepare($insert);
+                $stmt->prepare($insert);
+                include_once("../../assets/encrypt/encrypt.php");
+                $encrypted_password = encryptCode($password_1);
+                $auth = 0; // set as admin
+                $doe = date("Y-m-d");
+                $dob = date("Y-m-d", strtotime("-18 Years"));
+                $gender = "M";
+                $stmt->bind_param("sssssssssssss",$fullname,$dob,$doe,$school_code,$phone_number,$gender,$n_a,$n_a,$n_a,$username,$encrypted_password,$auth,$email);
+                if ($stmt->execute()) {
+                    // ... email sending logic here ...
+                    
+                    // email settings
+                    $sender_name = "Ladybird Timetable Generator!";
+                    $email_host_addr = "mail.privateemail.com";
+                    $email_username = "mail@ladybirdsmis.com";
+                    $email_password = "H1l@ryNgige";
+
+                    // try sending an email
+                    try {
+                        $mail = new PHPMailer(true);
+                
+                        $mail->isSMTP();
+                        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                        // $mail->Host = 'smtp.gmail.com';
+                        $mail->Host = $email_host_addr;
+                        $mail->SMTPAuth = true;
+                        // $mail->Username = "hilaryme45@gmail.com";
+                        // $mail->Password = "cmksnyxqmcgtncxw";
+                        $mail->Username = $email_username;
+                        $mail->Password = $email_password;
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+                        $mail->Port = 587;
+                        
+                        
+                        $mail->setFrom($email_username,$sender_name);
+                        $mail->addAddress($email);
+                        $mail->isHTML(true);
+                        $mail->Subject = "Verify Your Account - Ladybird Timetable Generator";
+                        $mail->Body = 
+                        '<!DOCTYPE html>
+                        <html>
+                            <head>
+                                <meta charset="UTF-8">
+                                <title>Email Verification</title>
+                            </head>
+                            <body style="font-family: Arial, sans-serif; background-color: #f6f6f6; padding: 20px;">
+                                <table width="100%" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td align="center">
+                                            <table width="600" cellpadding="20" cellspacing="0" style="background-color: #ffffff; border-radius: 6px;">
+                                                <tr>
+                                                    <td align="center">
+                                                        <h2 style="color: #333333; margin-bottom: 10px;">Verify Your Account</h2>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="color: #555555; font-size: 15px;">
+                                                        <p>Hello '.explode(" ", $fullname)[0].',</p>
+
+                                                        <p>
+                                                            Thank you for registering your account. To complete your registration,
+                                                            please verify your account by clicking the button below.
+                                                        </p>
+
+                                                        <p style="text-align: center; margin: 30px 0;">
+                                                            <a target="_blank" href="http://192.168.86.18:81/landsims/ajax/login/verify_email.php?code='.urlencode(encryptCode($username)).'"
+                                                            style="background-color: #0d6efd; color: #ffffff; padding: 12px 24px;
+                                                                    text-decoration: none; border-radius: 4px; display: inline-block;">
+                                                            Verify Your Account
+                                                            </a>
+                                                        </p>
+
+                                                        <p>
+                                                            If the button above does not work, copy and paste the link below into your browser:
+                                                        </p>
+
+                                                        <p style="word-break: break-all; color: #0d6efd;">
+                                                            http://192.168.86.18:81/landsims/ajax/login/verify_email.php?code='.urlencode(encryptCode($username)).'
+                                                        </p>
+
+                                                        <p>
+                                                            If you did not create this account, please ignore this email.
+                                                        </p>
+
+                                                        <p style="margin-top: 30px;">
+                                                            Regards,<br>
+                                                            <strong>Ladybird Timetable Support</strong>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <p style="font-size: 12px; color: #999999; margin-top: 15px;">
+                                                This is an automated message. Please do not reply.
+                                            </p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </body>
+                        </html>';
+                        $mail->send();
+                        $_SESSION['success'] = "<p class='text-success'>Please check your email inbox to verify your account!</p>";
+
+                        // unset all user input sessions
+                        unset($_SESSION['fullname']);
+                        unset($_SESSION['email']);
+                        unset($_SESSION['school_name']);
+                        unset($_SESSION['phone_number']);
+                        unset($_SESSION['school_county']);
+                        unset($_SESSION['school_country']);
+                        unset($_SESSION['username']);
+                        
+                        // redirect to sign up page
+                        redirect("../../timetable-signup.php");
+                    } catch (Exception $th) {
+                        // echo "<p class='text-danger p-1 border border-danger'>Error : ". $mail->ErrorInfo."</p>";
+                        $_SESSION['error'] = "<p class='text-success'>Error : ". $mail->ErrorInfo."!</p>";
+                    }
+                    $_SESSION['success'] = "<p class='text-success'>Your account has been created successfully!<br>You can now login to your account.</p>";
+                    redirect("../../timetable-signup.php");
+                }else {
+                    $_SESSION['error'] = "<p class='text-danger'>An error occured while creating your account!<br>Try again later.</p>";
+                    
+                    // delete the school information
+                    $delete = "DELETE FROM `school_information` WHERE `school_code` = ?";
+                    $stmt = $conn1->prepare($delete);
+                    $stmt->bind_param("s",$school_code);
+                    $stmt->execute();
+                    redirect("../../timetable-signup.php");
+                }
+            }else{
+                $_SESSION['error'] = "<p class='text-danger'>An error occured while setting up your school information!<br>Try again later.</p>";
+                redirect("../../timetable-signup.php");
+            }
         }else{
             echo "<p class='text-danger border border-danger'>The Email address has not been set up properly, Delete the current setting and redo the process again!</p>";
         }

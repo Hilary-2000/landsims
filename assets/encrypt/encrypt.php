@@ -13,10 +13,10 @@ function encryptCode($dataToEncrypt){
     return $encrypted;   
 }
 function decryptcode($datatodecrypt){
-    $arrayeddata = str_split(strrev($datatodecrypt),3);
+    $arrayeddata = str_split(strrev($datatodecrypt),4);
     $data="";
-    for ($i=0; $i < count($arrayeddata); $i++) { 
-        $data.=$arrayeddata[$i];
+    for ($i=0; $i < count($arrayeddata); $i++) {
+        $data.=getChar($arrayeddata[$i]);
     }
     return strrev($data);
 }
