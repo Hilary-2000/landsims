@@ -3,6 +3,7 @@
             //session is not started
             session_start();
         }
+        echo $_SESSION['databasename']."<br>";
         if (isset($_SESSION['databasename'])) {
             $dbname = $_SESSION['databasename'];
             $hostname = 'localhost';

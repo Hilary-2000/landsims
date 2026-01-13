@@ -451,7 +451,8 @@ session_start();
                                         ?>
                                 </div>
                                 <div class="g-recaptcha" data-sitekey="6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></div>
-                                <button class="btn btn-primary" type="submit">Register</button>
+                                <button class="btn btn-primary" type="submit"><i class="bi bi-person-plus"></i> Register</button>
+                                <a href="http://192.168.86.18:81/timetable_generator/" class="btn btn-outline-success"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
                             </div>
 
                         </div>

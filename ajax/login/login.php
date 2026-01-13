@@ -330,6 +330,7 @@ require("../../assets/encrypt/functions.php");
             }
         }elseif(isset($_POST['create_account'])) {
             include ("../../connections/conn1.php");
+            include_once("../../assets/encrypt/encrypt.php");
             unset($_SESSION['success']);
             unset($_SESSION['error']);
 
@@ -432,16 +433,62 @@ require("../../assets/encrypt/functions.php");
                 $insert = "INSERT INTO user_tbl (`fullname`, `dob`, `doe`, `school_code`, `phone_number`, `gender`, `address`, `nat_id`, `tsc_no`, `username`, `password`, `auth`, `email`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 $stmt = $conn->prepare($insert);
                 $stmt->prepare($insert);
-                include_once("../../assets/encrypt/encrypt.php");
                 $encrypted_password = encryptCode($password_1);
                 $auth = 0; // set as admin
                 $doe = date("Y-m-d");
                 $dob = date("Y-m-d", strtotime("-18 Years"));
                 $gender = "M";
                 $stmt->bind_param("sssssssssssss",$fullname,$dob,$doe,$school_code,$phone_number,$gender,$n_a,$n_a,$n_a,$username,$encrypted_password,$auth,$email);
-                if ($stmt->execute()) {
-                    // ... email sending logic here ...
-                    
+                if ($stmt->execute()) { 
+                    // create database for the school
+                    $create = "CREATE DATABASE IF NOT EXISTS `".$school_db."`";
+                    if ($conn->query($create) === TRUE) {
+                        $_SESSION['databasename'] = $school_db;
+                        include_once("../../connections/conn2.php");
+                        // IMPORT DATABASE STRUCTURE FROM A FILE
+                        $sql = file_get_contents("db_create.sql");
+                        if(!$conn2->multi_query($sql)){
+                            $_SESSION['error'] = "<p class='text-danger'>An error occured while creating your account database!<br>Try again later.</p>";
+                            // delete the school information
+                            $delete = "DELETE FROM `school_information` WHERE `school_code` = ?";
+                            $stmt = $conn->prepare($delete);
+                            $stmt->bind_param("s",$school_code);
+                            $stmt->execute();
+
+                            // delete the user information
+                            $delete = "DELETE FROM `user_tbl` WHERE `school_code` = ?";
+                            $stmt = $conn->prepare($delete);
+                            $stmt->bind_param("s",$school_code);
+                            $stmt->execute();
+
+                            // delete the database
+                            $delete = "DROP DATABASE IF EXISTS `".$school_db."`";
+                            $conn->query($delete);
+
+                            // redirect to sign up page
+                            redirect("../../timetable-signup.php");
+                            exit();
+                        }
+                    }else{
+                        $_SESSION['error'] = "<p class='text-danger'>An error occured while creating your account database!<br>Try again later.</p>";
+                        // delete the school information
+                        $delete = "DELETE FROM `school_information` WHERE `school_code` = ?";
+                        $stmt = $conn1->prepare($delete);
+                        $stmt->bind_param("s",$school_code);
+                        $stmt->execute();
+
+                        // delete the user information
+                        $delete = "DELETE FROM `user_tbl` WHERE `school_code` = ?";
+                        $stmt = $conn1->prepare($delete);
+                        $stmt->bind_param("s",$school_code);
+                        $stmt->execute();
+
+                        // redirect to sign up page
+                        redirect("../../timetable-signup.php");
+                        exit();
+                    }
+
+
                     // email settings
                     $sender_name = "Ladybird Timetable Generator!";
                     $email_host_addr = "mail.privateemail.com";
@@ -548,7 +595,7 @@ require("../../assets/encrypt/functions.php");
                         // echo "<p class='text-danger p-1 border border-danger'>Error : ". $mail->ErrorInfo."</p>";
                         $_SESSION['error'] = "<p class='text-success'>Error : ". $mail->ErrorInfo."!</p>";
                     }
-                    $_SESSION['success'] = "<p class='text-success'>Your account has been created successfully!<br>You can now login to your account.</p>";
+                    $_SESSION['success'] = "<p class='text-success'>Your account has been created successfully!<br>Verify your account with the link sent to your email to login.</p>";
                     redirect("../../timetable-signup.php");
                 }else {
                     $_SESSION['error'] = "<p class='text-danger'>An error occured while creating your account!<br>Try again later.</p>";
