@@ -347,7 +347,7 @@ session_start();
                                 <div class="step-number">03</div>
                                 <div class="step-content">
                                     <h3>Subject/Learning Areas Assignment</h3>
-                                    <p>Register all subjects and assign them to teachers teaching them and their respective grade.</p>
+                                    <p>Assign learning areas to teachers teaching them and their respective grades.</p>
                                 </div>
                             </div>
 
@@ -475,7 +475,7 @@ session_start();
                                 <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> In app customizations</li>
                                 <li style="font-size:12px; font-weight:700;"><i class="bi bi-check"></i> Shared Lessons configuration</li>
                             </ul>
-                            <a href="#" class="btn-buy">Start Now</a>
+                            <a href="timetable-signup.php" class="btn-buy">Start Now</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6"></div>

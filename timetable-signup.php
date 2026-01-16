@@ -352,11 +352,15 @@ session_start();
 
                             <div class="col-md-12">
                                 <input type="hidden" name="create_account" value="1">
-                                <input type="text" name="fullname" class="form-control" value="<?= isset($_SESSION['fullname']) ? $_SESSION['fullname'] : "" ?>" placeholder="Your Name" required>
+                                <input type="text" id="full_names" name="fullname" class="form-control" value="<?= isset($_SESSION['fullname']) ? $_SESSION['fullname'] : "" ?>" placeholder="Your Name" required>
                             </div>
 
                             <div class="col-md-12">
                                 <input type="email" class="form-control" name="email" value="<?= isset($_SESSION['email']) ? $_SESSION['email'] : "" ?>" placeholder="Your Email" required>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" id="tt_code" name="tt_code" value="<?= isset($_SESSION['tt_code']) ? $_SESSION['tt_code'] : "" ?>" placeholder="Timetable Code" required>
                             </div>
 
                             <div class="col-md-12">
@@ -423,8 +427,8 @@ session_start();
                             <div class="col-md-12">
                                 <select class="form-control" name="school_country" id="school_country">
                                     <option value="" hidden>Select Country</option>
-                                    <option <?= (isset($_SESSION['school_country']) && $_SESSION['school_country'] == "Kenya") ? "selected" : "" ?> id = "Kenya" value="Kenya">Kenya</option>
-                                    <option <?= (isset($_SESSION['school_country']) && $_SESSION['school_country'] == "Uganda") ? "selected" : "" ?> id = "Uganda" value="Uganda">Uganda</option>
+                                    <option <?= (isset($_SESSION['school_country']) && $_SESSION['school_country'] == "Kenya") ? "selected" : "" ?> id = "Kenya" selected value="Kenya">Kenya</option>
+                                    <option <?= (isset($_SESSION['school_country']) && $_SESSION['school_country'] == "Uganda") ? "selected" : "" ?> id = "Uganda" hidden value="Uganda">Uganda</option>
                                 </select>
                             </div>
 
@@ -575,7 +579,25 @@ session_start();
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+        cObj("full_names").onkeyup =  function(){
+            var fullname = this.value.trim();
+            var abbr_name = fullname.substring(0,3);
+            if(fullname.split(" ").length > 1){
+                abbr_name = "";
+                for(var index = 0; index < fullname.split(" ").length; index++){
+                    abbr_name += fullname.split(" ")[index].substring(0,1);
+                }
+            }
 
+            // tt_code
+            cObj("tt_code").value = abbr_name.substring(0,3);
+        }
+
+        function cObj(id){
+            return document.getElementById(id);
+        }
+    </script>
 </body>
 
 </html>

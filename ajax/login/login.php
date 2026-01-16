@@ -336,6 +336,7 @@ require("../../assets/encrypt/functions.php");
 
             // create the account and send a link to verify their email.
             $fullname = $_POST['fullname'];
+            $tt_code = $_POST['tt_code'];
             $email = $_POST['email'];
             $school_name = $_POST['school_name'];
             $phone_number = $_POST['phone_number'];
@@ -347,6 +348,7 @@ require("../../assets/encrypt/functions.php");
 
             // store the user data in sessions in case of error
             $_SESSION['fullname'] = $fullname;
+            $_SESSION['tt_code'] = $tt_code;
             $_SESSION['email'] = $email;
             $_SESSION['school_name'] = $school_name;
             $_SESSION['phone_number'] = $phone_number;
@@ -430,7 +432,7 @@ require("../../assets/encrypt/functions.php");
             $stmt->bind_param("sssssssssssssssss",$school_code,$school_name,$n_a,$motto,$fullname,$phone_number,$email,$n_a,$n_a,$school_db,$status,$vision,$mission,$school_county,$school_country,$school_county,$n_a);
             if ($stmt->execute()) {
                 // register the user
-                $insert = "INSERT INTO user_tbl (`fullname`, `dob`, `doe`, `school_code`, `phone_number`, `gender`, `address`, `nat_id`, `tsc_no`, `username`, `password`, `auth`, `email`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                $insert = "INSERT INTO user_tbl (`fullname`, `tt_code`, `dob`, `doe`, `school_code`, `phone_number`, `gender`, `address`, `nat_id`, `tsc_no`, `username`, `password`, `auth`, `email`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 $stmt = $conn->prepare($insert);
                 $stmt->prepare($insert);
                 $encrypted_password = encryptCode($password_1);
@@ -438,7 +440,7 @@ require("../../assets/encrypt/functions.php");
                 $doe = date("Y-m-d");
                 $dob = date("Y-m-d", strtotime("-18 Years"));
                 $gender = "M";
-                $stmt->bind_param("sssssssssssss",$fullname,$dob,$doe,$school_code,$phone_number,$gender,$n_a,$n_a,$n_a,$username,$encrypted_password,$auth,$email);
+                $stmt->bind_param("ssssssssssssss",$fullname,$tt_code,$dob,$doe,$school_code,$phone_number,$gender,$n_a,$n_a,$n_a,$username,$encrypted_password,$auth,$email);
                 if ($stmt->execute()) { 
                     // create database for the school
                     $create = "CREATE DATABASE IF NOT EXISTS `".$school_db."`";
