@@ -572,17 +572,17 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`sett`, `valued`, `id`) VALUES
-('admissionessentials', 'BREAD,Golf bat', 1),
-('class', '1,2,3,4,5,6,7,8,Grade 9', 2),
-('lastadmgen', '34', 5),
+('admissionessentials', '', 1),
+('class', 'Grade 1,Grade 2,Grade 3,Grade 4,Grade 5,Grade 6,Grade 7,Grade 8,Grade 9', 2),
+('lastadmgen', '1', 5),
 ('user_roles', '[]', 6),
-('clubs/sports_house', '[{\"id\":\"1\",\"Name\":\"Killian\"},{\"id\":2,\"Name\":\"ICT Department\"}]', 7),
+('clubs/sports_house', '[]', 7),
 ('email_setup', '{\"sender_name\":\"Ladybird Softech Co.\",\"email_host_addr\":\"mail.privateemail.com\",\"email_username\":\"mail@ladybirdsmis.com\",\"email_password\":\"H1l@ryNgige\",\"tester_mail\":\"hilaryme45@gmail.com\"}', 8),
 ('working_days', 'Tue,Wed,Thur,Fri,Sat,Mon', 9),
 ('last_acad_yr', '[{\"TERM_1\":{\"START_DATE\":\"2022-04-25\",\"END_DATE\":\"2022-07-11\"},\"TERM_2\":{\"START_DATE\":\"2022-07-12\",\"END_DATE\":\"2022-09-25\"},\"TERM_3\":{\"START_DATE\":\"2022-09-25\",\"END_DATE\":\"2022-12-31\"}},{\"TERM_1\":{\"START_DATE\":\"2023-01-01\",\"END_DATE\":\"2023-04-30\"},\"TERM_2\":{\"START_DATE\":\"2023-05-01\",\"END_DATE\":\"2023-08-31\"},\"TERM_3\":{\"START_DATE\":\"2023-09-01\",\"END_DATE\":\"2023-12-31\"}},{\"TERM_1\":{\"START_DATE\":\"2024-01-01\",\"END_DATE\":\"2024-04-30\"},\"TERM_2\":{\"START_DATE\":\"2024-05-01\",\"END_DATE\":\"2024-08-31\"},\"TERM_3\":{\"START_DATE\":\"2024-09-01\",\"END_DATE\":\"2024-12-31\"}}]', 10),
-('payment details', '[{\"description\":\"Kindly pay through Family Bank, Mpesa paybill number is 222111 and the Account number is  2385144 . \",\"show\":\"true\"},{\"description\":\"Then foward the payment confirmation message to 0700 737475 or 0700 737476 , including the student\'s name and class, Thank you.\",\"show\":\"true\"},{\"description\":\"Kindly pay through lipa karo na KCB MPESA paybill number 522123 ACCOUNT NUMBER as 40165KADMNUMBER STUDENTNAME e.g 0165k001JOHN.\",\"show\":\"true\"},{\"description\":\"Or\",\"show\":\"false\"},{\"description\":\"Send directly to K.C.B MPESA paybill: 522522 Account Number: 1132127874.\",\"show\":\"false\"}]', 11),
-('expense categories', '[\"Daily-expense\",\"Utility\",\"Marketing\",\"Medical\",\"Labour\",\"Bonus\",\"Taxes\",\"Food\",\"Fuel Kca 101 A\"]', 12),
-('departments', '[{\"name\":\"Mathematics Department\",\"code\":\"DP-001\",\"subjects\":[{\"name\":\"1\"},{\"name\":\"2\"},{\"name\":\"3\"},{\"name\":\"4\"},{\"name\":\"5\"},{\"name\":\"6\"},{\"name\":\"7\"},{\"name\":\"8\"},{\"name\":\"9\"},{\"name\":\"10\"},{\"name\":\"11\"},{\"name\":\"12\"}],\"description\":\"Mathematics departments\",\"date_created\":\"20230609191830\",\"members\":[{\"name\":\"1\",\"date_joined\":\"20230609191934\"},{\"name\":\"2\",\"date_joined\":\"20230615005145\"},{\"name\":\"3\",\"date_joined\":\"20230615005145\"},{\"name\":\"5\",\"date_joined\":\"20230615005145\"},{\"name\":\"176\",\"date_joined\":\"20230615005145\"},{\"name\":\"177\",\"date_joined\":\"20230615005145\"}],\"hod\":\"142\",\"id\":1}]', 13),
+('payment details', '[]', 11),
+('expense categories', '[]', 12),
+('departments', '[]', 13),
 ('libraries', '[{\"id\":\"1\",\"Name\":\"Primary Library\"}]', 14);
 
 -- --------------------------------------------------------
@@ -605,7 +605,7 @@ CREATE TABLE `sms_api` (
 --
 
 INSERT INTO `sms_api` (`sms_api_key`, `patner_id`, `short_code`, `username`, `user_id`, `send_sms_url`) VALUES
-('c495f4ec19357b49b5a5a6d47b86f97c', '700', 'ROSHEN SCH', 'softtech', 1, 'https://isms.celcomafrica.com/api/services/sendsms');
+('c495f4ec19357b49b5a5a6d47b86f97c', '700', 'LADYBIRD', 'softtech', 1, 'https://isms.celcomafrica.com/api/services/sendsms');
 
 -- --------------------------------------------------------
 

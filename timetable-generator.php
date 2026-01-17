@@ -264,7 +264,7 @@ session_start();
                     <li><a class="nav-link scrollto" href="#values">Why Choose Us</a></li>
                     <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
                     <li><a class="nav-link scrollto" href="index.php">Back to Ladybird SMS</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Sign In</a></li>
+                    <li><a class="getstarted scrollto" href="https://timetablegenerator.ladybirdsmis.com">Sign In</a></li>
                     <!-- <li><a class="getstarted scrollto" href="lsims.ladybirdsmis.com">L-SIMS</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -320,7 +320,7 @@ session_start();
                             <p>This 5 step guide helps you generate your timetable efficiently and allows you to share it with your teachers, students, and the administrative circle. Once you have your information setup you will continue generating timetables as many times as you wish.</p>
                             <p><b>Note:</b><br> Suitable for primary schools, junior and senior secondary schools <u><b>excluding</b></u> tertiary institutions.</p>
                             <div class="steps-cta">
-                                <a href="#contact" class="btn btn-primary">Create Account <i class="bi bi-arrow-right"></i></a>
+                                <a href="timetable-signup.php" class="btn btn-primary">Create Account <i class="bi bi-arrow-right"></i></a>
                                 <a href="#about" class="btn btn-outline d-none">Learn More</a>
                             </div>
                         </div>

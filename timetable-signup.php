@@ -264,7 +264,7 @@ session_start();
                     <li><a class="nav-link scrollto" href="#values">Why Choose Us</a></li>
                     <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
                     <li><a class="nav-link scrollto" href="index.php">Back to Ladybird SMS</a></li>
-                    <li><a class="getstarted scrollto" href="#about">Sign In</a></li>
+                    <li><a class="getstarted scrollto" href="https://timetablegenerator.ladybirdsmis.com">Sign In</a></li>
                     <!-- <li><a class="getstarted scrollto" href="lsims.ladybirdsmis.com">L-SIMS</a></li> -->
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
@@ -349,7 +349,6 @@ session_start();
                 <div class="col-lg-6">
                     <form action="ajax/login/login.php" method="post" class="">
                         <div class="row gy-4">
-
                             <div class="col-md-12">
                                 <input type="hidden" name="create_account" value="1">
                                 <input type="text" id="full_names" name="fullname" class="form-control" value="<?= isset($_SESSION['fullname']) ? $_SESSION['fullname'] : "" ?>" placeholder="Your Name" required>
@@ -456,7 +455,7 @@ session_start();
                                 </div>
                                 <div class="g-recaptcha" data-sitekey="6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></div>
                                 <button class="btn btn-primary" type="submit"><i class="bi bi-person-plus"></i> Register</button>
-                                <a href="http://192.168.86.18:81/timetable_generator/" class="btn btn-outline-success"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
+                                <a href="https://timetablegenerator.ladybirdsmis.com/timetable_generator/login.php" class="btn btn-outline-success"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
                             </div>
 
                         </div>

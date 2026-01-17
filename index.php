@@ -79,12 +79,13 @@ session_start();
                     <!-- <li><a href="blog.html">Blog</a></li> -->
                     <li><a class="nav-link scrollto" href="#faq">F.A.Q</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Get Demo</a></li>
-                    <li><a class="nav-link scrollto" href="timetable-generator.php">Timetable Generator <small class="badge bg-success">New</small></a></li>
+                    <!-- <li><a class="nav-link scrollto" href="timetable-generator.php">Timetable Generator <small class="badge bg-success">New</small></a></li> -->
                     <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="https://lsims.ladybirdsmis.com/">Ladybird School System</a></li>
                             <li><a href="https://libsms.ladybirdsmis.com/">Ladybird Library System</a></li>
                             <li><a href="https://lpts.ladybirdsmis.com/">Ladybird Learning System</a></li>
+                            <li><a href="timetable-signup.php">Online Timetable Generator</a></li>
                         </ul>
                     </li>
                     <li><a class="getstarted scrollto" href="#about">Get Started</a></li>

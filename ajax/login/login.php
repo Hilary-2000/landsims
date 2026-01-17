@@ -402,7 +402,7 @@ require("../../assets/encrypt/functions.php");
             $stmt->execute();
             $result = $stmt->get_result();
             if ($result->num_rows > 0) {
-                $_SESSION['error'] = "<p class='text-danger'>Account already exists, try loging in!</p>";
+                $_SESSION['error'] = "<p class='text-danger'>Account already exists, try logging in or create your account with another phone number!</p>";
                 redirect("../../timetable-signup.php");
                 exit();
             }
@@ -420,7 +420,7 @@ require("../../assets/encrypt/functions.php");
             }
 
             // proceed and register the school and the user
-            $insert = "INSERT INTO school_information (`school_code`, `school_name`, `sch_message_name`, `school_motto`, `school_admin_name`, `school_contact`, `school_mail`, `school_location`, `school_domain`, `database_name`, `activated`, `sch_vision`, `sch_mission`, `county`, `country`, `physicall_address`, `website_name`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $insert = "INSERT INTO school_information (`school_profile_image`, `school_code`, `school_domain`, `school_name`, `sch_message_name`, `school_motto`, `school_admin_name`, `school_contact`, `school_mail`, `school_location`,`database_name`, `activated`, `sch_vision`, `sch_mission`, `county`, `country`, `physicall_address`, `website_name`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($insert);
             $school_code = substr($phone_number,2);
             $school_db = $school_code."_db";
@@ -429,19 +429,20 @@ require("../../assets/encrypt/functions.php");
             $vision = "Set Vision";
             $mission = "Set Mission";
             $status = 0;
-            $stmt->bind_param("sssssssssssssssss",$school_code,$school_name,$n_a,$motto,$fullname,$phone_number,$email,$n_a,$n_a,$school_db,$status,$vision,$mission,$school_county,$school_country,$school_county,$n_a);
+            $school_domain = "timetablegenerator.ladybirdsmis.com";
+            $profile_image = "images/sch_profiles/ladybird_image.png";
+            $stmt->bind_param("ssssssssssssssssss", $profile_image, $school_code, $school_domain, $school_name, $n_a, $motto, $fullname, $phone_number, $email, $n_a, $school_db, $status, $vision, $mission, $school_county, $school_country, $school_county, $n_a);
             if ($stmt->execute()) {
                 // register the user
                 $insert = "INSERT INTO user_tbl (`fullname`, `tt_code`, `dob`, `doe`, `school_code`, `phone_number`, `gender`, `address`, `nat_id`, `tsc_no`, `username`, `password`, `auth`, `email`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
                 $stmt = $conn->prepare($insert);
-                $stmt->prepare($insert);
                 $encrypted_password = encryptCode($password_1);
                 $auth = 0; // set as admin
                 $doe = date("Y-m-d");
                 $dob = date("Y-m-d", strtotime("-18 Years"));
                 $gender = "M";
                 $stmt->bind_param("ssssssssssssss",$fullname,$tt_code,$dob,$doe,$school_code,$phone_number,$gender,$n_a,$n_a,$n_a,$username,$encrypted_password,$auth,$email);
-                if ($stmt->execute()) { 
+                if ($stmt->execute()) {
                     // create database for the school
                     $create = "CREATE DATABASE IF NOT EXISTS `".$school_db."`";
                     if ($conn->query($create) === TRUE) {
@@ -545,7 +546,7 @@ require("../../assets/encrypt/functions.php");
                                                         </p>
 
                                                         <p style="text-align: center; margin: 30px 0;">
-                                                            <a target="_blank" href="http://192.168.86.18:81/landsims/ajax/login/verify_email.php?code='.urlencode(encryptCode($username)).'"
+                                                            <a target="_blank" href="https://ladybirdsmis.com/ajax/login/verify_email.php?code='.urlencode(encryptCode($username)).'"
                                                             style="background-color: #0d6efd; color: #ffffff; padding: 12px 24px;
                                                                     text-decoration: none; border-radius: 4px; display: inline-block;">
                                                             Verify Your Account
@@ -557,7 +558,7 @@ require("../../assets/encrypt/functions.php");
                                                         </p>
 
                                                         <p style="word-break: break-all; color: #0d6efd;">
-                                                            http://192.168.86.18:81/landsims/ajax/login/verify_email.php?code='.urlencode(encryptCode($username)).'
+                                                            https://ladybirdsmis.com/ajax/login/verify_email.php?code='.urlencode(encryptCode($username)).'
                                                         </p>
 
                                                         <p>
