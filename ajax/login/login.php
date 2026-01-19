@@ -282,32 +282,85 @@ require("../../assets/encrypt/functions.php");
         if (isset($_POST['name'])) {
             include ("../../connections/conn1.php");
             include ("../../connections/conn2.php");
+
+            // verify captcha
+            $token = $_POST['recaptcha_token'] ?? '';
+
+            if (!$token) {
+                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
+                redirect("../../#contact");
+                exit();
+            }
+
+            $secretKey = '6LcNKkgsAAAAAN2hmmVu3N6S_-Mav_eJjkHMkaNk';
+
+            $data = [
+                'secret'   => $secretKey,
+                'response' => $token,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
+            ];
+
+            $options = [
+                'http' => [
+                    'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
+                    'method'  => 'POST',
+                    'content' => http_build_query($data),
+                    'timeout' => 10
+                ]
+            ];
+
+            $context = stream_context_create($options);
+            $result  = file_get_contents(
+                'https://www.google.com/recaptcha/api/siteverify',
+                false,
+                $context
+            );
+
+            $response = json_decode($result, true);
+            if (
+                !$response['success'] ||
+                $response['score'] < 0.5 ||
+                $response['action'] !== 'REGISTER'
+            ) {
+                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
+                redirect("../../#contact");
+                exit();
+            }
+            // continue with registration
+            
+            // validate the passwords
+            if ($password_1 != $password_2) {
+                $_SESSION['error'] = "<p class='text-danger'>The passwords do not match!</p>";
+                redirect("../../#contact");
+                exit();
+            }
+
             // get the student information
             $name = $_POST['name'];
             $email = $_POST['email'];
             $subject = $_POST['subject'];
             $message = $_POST['message'];
             $phone_number = $_POST['phone_number'];
+            $school_name = $_POST['school_name'];
+            $county = $_POST['school_county'];
+            $country = $_POST['school_country'];
             unset($_SESSION['success']);
             unset($_SESSION['error']);
+
             // email settings
-            $sender_name = "Customer Inquiries!";
+            $tester_mail = "ladybirdsmis@gmail.com";
+            $sender_name = "Ladybird Timetable Generator!";
             $email_host_addr = "mail.privateemail.com";
             $email_username = "mail@ladybirdsmis.com";
-            $email_password = "2000Hilary";
-            $tester_mail = "ladybirdsmis@gmail.com";
+            $email_password = "H1l@ryNgige";
 
             // try sending an email
             try {
                 $mail = new PHPMailer(true);
         
                 $mail->isSMTP();
-                // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-                // $mail->Host = 'smtp.gmail.com';
                 $mail->Host = $email_host_addr;
                 $mail->SMTPAuth = true;
-                // $mail->Username = "hilaryme45@gmail.com";
-                // $mail->Password = "cmksnyxqmcgtncxw";
                 $mail->Username = $email_username;
                 $mail->Password = $email_password;
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
@@ -318,8 +371,85 @@ require("../../assets/encrypt/functions.php");
                 $mail->addAddress($tester_mail);
                 $mail->isHTML(true);
                 $mail->Subject = $subject;
-                $mail->Body = "<b>Name: </b>".$name."<br><b>Phone number : </b>".$phone_number."<br><b>Email: </b>".$email."<br>".$message;
-        
+                // $mail->Body = "<b>Name: </b>".$name."<br><b>Phone number : </b>".$phone_number."<br><b>Email: </b>".$email."<br>".$message;
+                $message = '<!DOCTYPE html>
+                            <html>
+                                <head>
+                                    <meta charset="UTF-8">
+                                    <title>New Lead</title>
+                                </head>
+                                <body style="font-family: Arial, Helvetica, sans-serif; background-color: #f5f7fa; padding: 20px;">
+
+                                    <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: auto; background-color: #ffffff; border-radius: 6px; overflow: hidden;">
+
+                                        ```
+                                        <!-- Header -->
+                                        <tr>
+                                            <td style="background-color: #0d6efd; color: #ffffff; padding: 16px 20px;">
+                                                <h2 style="margin: 0; font-size: 18px;">📩 New Website Inquiry</h2>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Body -->
+                                        <tr>
+                                            <td style="padding: 20px;">
+                                                <p style="margin-top: 0; font-size: 14px; color: #333;">
+                                                You have received a new inquiry from your website. Below are the details:
+                                                </p>
+
+                                                <table width="100%" cellpadding="8" cellspacing="0" style="border-collapse: collapse; font-size: 14px;">
+                                                <tr>
+                                                    <td style="font-weight: bold; width: 35%;">Name:</td>
+                                                    <td>'.$name.'</td>
+                                                </tr>
+                                                <tr style="background-color: #f1f3f5;">
+                                                    <td style="font-weight: bold;">Phone Number:</td>
+                                                    <td>'.$phone_number.'</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight: bold;">School Name:</td>
+                                                    <td>'.$school_name.'</td>
+                                                </tr>
+                                                <tr style="background-color: #f1f3f5;">
+                                                    <td style="font-weight: bold; width: 35%;">County:</td>
+                                                    <td>'.$county.'</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="font-weight: bold;">Country:</td>
+                                                    <td>'.$country.'</td>
+                                                </tr>
+                                                <tr style="background-color: #f1f3f5;">
+                                                    <td style="font-weight: bold;">Email Address:</td>
+                                                    <td>
+                                                        <a href="mailto:hilaryme45@gmail.com" style="color: #0d6efd; text-decoration: none;">
+                                                            '.$email.'
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </table>
+
+                                                <hr style="margin: 20px 0; border: none; border-top: 1px solid #e0e0e0;">
+
+                                                <p style="font-weight: bold; margin-bottom: 6px;">Message:</p>
+                                                <p style="margin-top: 0; color: #444;">
+                                                    '.$message.'
+                                                </p>
+                                            </td>
+                                        </tr>
+
+                                        <!-- Footer -->
+                                        <tr>
+                                        <td style="background-color: #f8f9fa; padding: 12px 20px; font-size: 12px; color: #777; text-align: center;">
+                                            This message was sent from the website contact form.
+                                        </td>
+                                        </tr>
+                                    ```
+
+                                    </table>
+
+                                </body>
+                            </html>';
+                $mail->Body = $message;
                 $mail->send();
                 $_SESSION['success'] = "<p class='text-success'>We have recieved your request we will review it and get back to you in a ASAP!</p>";
                 redirect("../../#contact");
@@ -355,43 +485,57 @@ require("../../assets/encrypt/functions.php");
             $_SESSION['school_county'] = $school_county;
             $_SESSION['school_country'] = $school_country;
             $_SESSION['username'] = $username;
-            
-            // validate the passwords
-            if ($password_1 != $password_2) {
-                $_SESSION['error'] = "<p class='text-danger'>The passwords do not match!</p>";
+
+            // verify captcha
+            $token = $_POST['recaptcha_token'] ?? '';
+
+            if (!$token) {
+                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
                 redirect("../../timetable-signup.php");
                 exit();
             }
 
-            $secretKey = "6LcNKkgsAAAAAN2hmmVu3N6S_-Mav_eJjkHMkaNk";
-            $responseKey = $_POST['g-recaptcha-response'];
-            $userIP = $_SERVER['REMOTE_ADDR'];
+            $secretKey = '6LcNKkgsAAAAAN2hmmVu3N6S_-Mav_eJjkHMkaNk';
 
-
-            // url
-            $url = "https://www.google.com/recaptcha/api/siteverify";
             $data = [
-            'secret' => $secretKey,
-            'response' => $responseKey,
-            'remoteip' => $userIP
+                'secret'   => $secretKey,
+                'response' => $token,
+                'remoteip' => $_SERVER['REMOTE_ADDR']
             ];
 
             $options = [
                 'http' => [
                     'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
                     'method'  => 'POST',
-                    'content' => http_build_query($data)
+                    'content' => http_build_query($data),
+                    'timeout' => 10
                 ]
             ];
 
-            $context  = stream_context_create($options);
-            $verify = file_get_contents($url, false, $context);
-            $response = json_decode($verify);
+            $context = stream_context_create($options);
+            $result  = file_get_contents(
+                'https://www.google.com/recaptcha/api/siteverify',
+                false,
+                $context
+            );
 
-            if (!$response->success) {
-                // $_SESSION['error'] = "<p class='text-success'>Cannot complete your request at this time, try again later!</p>";
-                // redirect("../../timetable-signup.php");
-                // exit();
+            $response = json_decode($result, true);
+            if (
+                !$response['success'] ||
+                $response['score'] < 0.5 ||
+                $response['action'] !== 'REGISTER'
+            ) {
+                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
+                redirect("../../timetable-signup.php");
+                exit();
+            }
+            // continue with registration
+            
+            // validate the passwords
+            if ($password_1 != $password_2) {
+                $_SESSION['error'] = "<p class='text-danger'>The passwords do not match!</p>";
+                redirect("../../timetable-signup.php");
+                exit();
             }
 
             // check if the school exists by using the school code

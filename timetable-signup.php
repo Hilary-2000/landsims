@@ -244,13 +244,12 @@ session_start();
             margin-bottom: 0;
         }
     </style>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></script>
 </head>
 
 <body>
-
     <!-- ======= Header ======= -->
-    <header id="header" class="header fixed-top d-none">
+    <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
             <h1 class="d-none">Ladybird School Management System</h1>
             <a href="." class="logo d-flex align-items-center">
@@ -259,10 +258,10 @@ session_start();
             </a>
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#guide">5 Step Guide</a></li>
-                    <li><a class="nav-link scrollto" href="#values">Why Choose Us</a></li>
-                    <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
+                    <li><a class="nav-link scrollto active" href="./timetable-generator.php">Home</a></li>
+                    <li><a class="nav-link scrollto" href="./timetable-generator.php#guide">5 Step Guide</a></li>
+                    <li><a class="nav-link scrollto" href="./timetable-generator.php#values">Why Choose Us</a></li>
+                    <li><a class="nav-link scrollto" href="./timetable-generator.php#pricing">Pricing</a></li>
                     <li><a class="nav-link scrollto" href="index.php">Back to Ladybird SMS</a></li>
                     <li><a class="getstarted scrollto" href="https://timetablegenerator.ladybirdsmis.com">Sign In</a></li>
                     <!-- <li><a class="getstarted scrollto" href="lsims.ladybirdsmis.com">L-SIMS</a></li> -->
@@ -277,7 +276,6 @@ session_start();
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center d-none">
-
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
@@ -308,7 +306,7 @@ session_start();
     <section id="contact" class="contact">
         <div class="container" data-aos="fade-up">
             <header class="section-header">
-                <h2>Sign Up</h2>
+                <h2></h2>
                 <p>Create you account</p>
             </header>
             <div class="row gy-4">
@@ -347,10 +345,11 @@ session_start();
                 </div>
 
                 <div class="col-lg-6">
-                    <form action="ajax/login/login.php" method="post" class="">
+                    <form action="ajax/login/login.php" method="post" class="" id="registration_form">
                         <div class="row gy-4">
                             <div class="col-md-12">
                                 <input type="hidden" name="create_account" value="1">
+                                <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                 <input type="text" id="full_names" name="fullname" class="form-control" value="<?= isset($_SESSION['fullname']) ? $_SESSION['fullname'] : "" ?>" placeholder="Your Name" required>
                             </div>
 
@@ -453,7 +452,6 @@ session_start();
                                         }
                                         ?>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></div>
                                 <button class="btn btn-primary" type="submit"><i class="bi bi-person-plus"></i> Register</button>
                                 <a href="https://timetablegenerator.ladybirdsmis.com/timetable_generator/login.php" class="btn btn-outline-success"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
                             </div>
@@ -595,6 +593,23 @@ session_start();
 
         function cObj(id){
             return document.getElementById(id);
+        }
+    </script>
+    <script>
+        cObj("registration_form").onsubmit = function (event){
+            event.preventDefault();
+            if (typeof grecaptcha === "undefined") {
+                alert("reCAPTCHA failed to load. Please refresh the page.");
+                return;
+            }
+            const form = this;
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3', { action: 'REGISTER' })
+                    .then(function (token) {
+                        cObj("recaptcha_token").value = token;
+                        form.submit();
+                    });
+            });
         }
     </script>
 </body>

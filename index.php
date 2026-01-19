@@ -57,6 +57,7 @@ session_start();
 
     gtag('config', 'G-K5H4YCK02K');
     </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></script>
 </head>
 
 <body>
@@ -79,7 +80,7 @@ session_start();
                     <!-- <li><a href="blog.html">Blog</a></li> -->
                     <li><a class="nav-link scrollto" href="#faq">F.A.Q</a></li>
                     <li><a class="nav-link scrollto" href="#contact">Get Demo</a></li>
-                    <!-- <li><a class="nav-link scrollto" href="timetable-generator.php">Timetable Generator <small class="badge bg-success">New</small></a></li> -->
+                    <li><a class="nav-link scrollto" href="timetable-generator.php">Timetable Generator</a></li>
                     <li class="dropdown"><a href="#"><span>Login</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a href="https://lsims.ladybirdsmis.com/">Ladybird School System</a></li>
@@ -890,10 +891,10 @@ session_start();
                     </div>
 
                     <div class="col-lg-6">
-                        <form action="ajax/login/login.php" method="post" class="">
+                        <form action="ajax/login/login.php" method="post" class="" id="registration_form">
                             <div class="row gy-4">
-
                                 <div class="col-md-6">
+                                    <input type="hidden" name="recaptcha_token" id="recaptcha_token">
                                     <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                                 </div>
 
@@ -902,7 +903,73 @@ session_start();
                                 </div>
 
                                 <div class="col-md-12 ">
+                                    <input type="text" class="form-control" name="school_name" placeholder="Your School Name" required>
+                                </div>
+
+                                <div class="col-md-12 ">
                                     <input type="text" class="form-control" name="phone_number" placeholder="Your Phone Number" required>
+                                </div>
+
+                                <div class="col-md-12 ">
+                                    <select class="form-control" name="school_county" id="school_county" required>
+                                        <option value="" hidden>Select County</option>
+                                        <option id="Mombasa" value="Mombasa">Mombasa</option>
+                                        <option id="Kwale" value="Kwale">Kwale</option>
+                                        <option id="Kilifi" value="Kilifi">Kilifi</option>
+                                        <option id="Tana River" value="Tana River">Tana River</option>
+                                        <option id="Lamu" value="Lamu">Lamu</option>
+                                        <option id="Taita/aveta" value="Taita/Taveta">Taita/Taveta</option>
+                                        <option id="Garissa" value="Garissa">Garissa</option>
+                                        <option id="Wajir" value="Wajir">Wajir</option>
+                                        <option id="Mandera" value="Mandera">Mandera</option>
+                                        <option id="Marsabit" value="Marsabit">Marsabit</option>
+                                        <option id="Isiolo" value="Isiolo">Isiolo</option>
+                                        <option id="Meru" value="Meru">Meru</option>
+                                        <option id="Tharaka-Nithi" value="Tharaka-Nithi">Tharaka-Nithi</option>
+                                        <option id="Embu" value="Embu">Embu</option>
+                                        <option id="Kitui" value="Kitui">Kitui</option>
+                                        <option id="Machakos" value="Machakos">Machakos</option>
+                                        <option id="Makueni" value="Makueni">Makueni</option>
+                                        <option id="Nyandarua" value="Nyandarua">Nyandarua</option>
+                                        <option id="Nyeri" value="Nyeri">Nyeri</option>
+                                        <option id="Kirinyaga" value="Kirinyaga">Kirinyaga</option>
+                                        <option id="Murang'a" value="Murang'a">Murang'a</option>
+                                        <option id="Kiambu" value="Kiambu">Kiambu</option>
+                                        <option id="Turkana" value="Turkana">Turkana</option>
+                                        <option id="West Pokot" value="West Pokot">West Pokot</option>
+                                        <option id="Samburu" value="Samburu">Samburu</option>
+                                        <option id="Trans Nzoia" value="Trans Nzoia">Trans Nzoia</option>
+                                        <option id="Uasin Gishu" value="Uasin Gishu">Uasin Gishu</option>
+                                        <option id="Elgeyo/Marakwet" value="Elgeyo/Marakwet">Elgeyo/Marakwet</option>
+                                        <option id="Nandi" value="Nandi">Nandi</option>
+                                        <option id="Baringo" value="Baringo">Baringo</option>
+                                        <option id="Laikipia" value="Laikipia">Laikipia</option>
+                                        <option id="Nakuru" value="Nakuru">Nakuru</option>
+                                        <option id="Narok" value="Narok">Narok</option>
+                                        <option id="Kajiado" value="Kajiado">Kajiado</option>
+                                        <option id="Kericho" value="Kericho">Kericho</option>
+                                        <option id="Bomet" value="Bomet">Bomet</option>
+                                        <option id="Kakamega" value="Kakamega">Kakamega</option>
+                                        <option id="Vihiga" value="Vihiga">Vihiga</option>
+                                        <option id="Bungoma" value="Bungoma">Bungoma</option>
+                                        <option id="Busia" value="Busia">Busia</option>
+                                        <option id="Siaya" value="Siaya">Siaya</option>
+                                        <option id="Kisumu" value="Kisumu">Kisumu</option>
+                                        <option id="Homa Bay" value="Homa Bay">Homa Bay</option>
+                                        <option id="Migori" value="Migori">Migori</option>
+                                        <option id="Kisii" value="Kisii">Kisii</option>
+                                        <option id="Nyamira" value="Nyamira">Nyamira</option>
+                                        <option id="Nairobi" value="Nairobi">Nairobi</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <select class="form-control" name="school_country" id="school_country" required>
+                                        <option value="" hidden>Select Country</option>
+                                        <option id = "Kenya" selected value="Kenya">Kenya</option>
+                                        <option id = "Tanzania" value="Tanzania">Tanzania</option>
+                                        <option id = "Uganda" value="Uganda">Uganda</option>
+                                    </select>
                                 </div>
 
                                 <div class="col-md-12">
@@ -1045,6 +1112,28 @@ if (isset($_SESSION['error'])) {
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <script>
+        function cObj(id){
+            return document.getElementById(id);
+        }
+    </script>
+    <script>
+        cObj("registration_form").onsubmit = function (event){
+            event.preventDefault();
+            if (typeof grecaptcha === "undefined") {
+                alert("reCAPTCHA failed to load. Please refresh the page.");
+                return;
+            }
+            const form = this;
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3', { action: 'REGISTER' })
+                    .then(function (token) {
+                        cObj("recaptcha_token").value = token;
+                        form.submit();
+                    });
+            });
+        }
+    </script>
 
 </body>
 

@@ -316,7 +316,7 @@ session_start();
                 <div class="row">
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="steps-content">
-                            <h2>Step 5 Guide</h2>
+                            <h2>5 Step Guide</h2>
                             <p>This 5 step guide helps you generate your timetable efficiently and allows you to share it with your teachers, students, and the administrative circle. Once you have your information setup you will continue generating timetables as many times as you wish.</p>
                             <p><b>Note:</b><br> Suitable for primary schools, junior and senior secondary schools <u><b>excluding</b></u> tertiary institutions.</p>
                             <div class="steps-cta">
