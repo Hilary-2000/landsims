@@ -8,15 +8,15 @@ session_start();
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Ladybird Online-Timetable Generator</title>
-    <meta content="Ladybird Online-Timetable Generator helps schools administrators generate timetables efficiently and effectively - . It is the best timetable generator for schools in Kenya." name="description">
+    <title>Free Online-Timetable Generator</title>
+    <meta content="Free Online-Timetable Generator helps schools administrators generate timetables efficiently and effectively - . It is the best timetable generator for schools in Kenya." name="description">
 
     <meta content="The best timetable generator for schools in Kenya" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/ladybird_dark-removebg.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link rel="shortcut icon" href="assets/img/ladybird_dark-removebg.png" type="image/x-icon">
+    <link href="assets/img/logo2.png" rel="icon">
+    <link href="assets/img/logo2.png" rel="apple-touch-icon">
+    <link rel="shortcut icon" href="assets/img/logo2.png" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -49,6 +49,7 @@ session_start();
         gtag('js', new Date());
 
         gtag('config', 'UA-243578000-1');
+        gtag('config', 'AW-17752151149'); 
     </script>
 
     <!-- Google tag (gtag.js) -->

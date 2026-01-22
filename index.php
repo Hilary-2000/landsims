@@ -8,15 +8,15 @@ session_start();
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Ladybird School MIS</title>
+    <title>CBC Compliant School Management System | Ladybird School Management System</title>
     <meta content="Ladybird School Management System is the best School Management System in Kenya, with an array of portals for the school administrators and its community at large" name="description">
 
     <meta content="Ladybird School Management System, Best Management System, SMIS, Ladybird SMIS, School management Systems in Kenya" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/ladybird_dark-removebg.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-    <link rel="shortcut icon" href="assets/img/ladybird_dark-removebg.png" type="image/x-icon">
+    <link href="assets/img/logo2.png" rel="icon">
+    <link href="assets/img/logo2.png" rel="apple-touch-icon">
+    <link rel="shortcut icon" href="assets/img/logo2.png" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -56,7 +56,17 @@ session_start();
     gtag('js', new Date());
 
     gtag('config', 'G-K5H4YCK02K');
+    gtag('config', 'AW-17752151149');
     </script>
+    <!-- Google tag (gtag.js) --> 
+     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17752151149"></script> 
+     <script> 
+        window.dataLayer = window.dataLayer || []; 
+        function gtag(){
+            dataLayer.push(arguments);
+        } 
+        gtag('js', new Date()); 
+    </script> -->
     <script src="https://www.google.com/recaptcha/api.js?render=6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></script>
 </head>
 
@@ -968,7 +978,7 @@ session_start();
                                         <option value="" hidden>Select Country</option>
                                         <option id = "Kenya" selected value="Kenya">Kenya</option>
                                         <option id = "Tanzania" value="Tanzania">Tanzania</option>
-                                        <option id = "Uganda" value="Uganda">Uganda</option>
+                                        <option id = "Uganda" hidden value="Uganda">Uganda</option>
                                     </select>
                                 </div>
 
