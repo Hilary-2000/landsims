@@ -618,6 +618,7 @@ session_start();
         }
         function onTurnstileExpired() {
             console.warn("Turnstile token expired");
+            cObj('submit_button').disabled = true;
             cObj("expiry_handler").innerHTML = "<p class='border border-danger text-danger'>Page expired. Reload and try again!</p>";
         }
     </script>
