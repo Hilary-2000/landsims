@@ -58,16 +58,9 @@ session_start();
     gtag('config', 'G-K5H4YCK02K');
     gtag('config', 'AW-17752151149');
     </script>
-    <!-- Google tag (gtag.js) --> 
-     <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17752151149"></script> 
-     <script> 
-        window.dataLayer = window.dataLayer || []; 
-        function gtag(){
-            dataLayer.push(arguments);
-        } 
-        gtag('js', new Date()); 
-    </script> -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></script>
+
+    <!-- Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -990,16 +983,27 @@ session_start();
                                     <textarea class="form-control" name="message" rows="6" placeholder="Write a Message to us or Request demo...." required></textarea>
                                 </div>
 
+                                <div class="cf-turnstile"
+                                    data-sitekey="0x4AAAAAACOwrvcgUtNUu9B6"
+                                    data-callback="onTurnstileSuccess"
+                                    data-error-callback="onTurnstileError"
+                                    data-expired-callback="onTurnstileExpired">
+                                </div>
+
+                                <input type="hidden" name="cf_turnstile_response" id="cf_turnstile_response">
+
                                 <div class="col-md-12 text-center">
-                                    <div><?php
-                                        if (isset($_SESSION['error'])) {
-                                            echo "<p class='border border-danger text-danger'>".$_SESSION['error']."</p>";
-                                        }
-                                        if (isset($_SESSION['success'])){
-                                            echo "<p class='border border-success text-success'>".$_SESSION['success']."</p>";
-                                        }
-                                     ?></div>
-                                    <button class="btn btn-primary" type="submit">Send Message</button>
+                                    <div id="expiry_handler">
+                                        <?php
+                                            if (isset($_SESSION['error'])) {
+                                                echo "<p class='border border-danger text-danger'>".$_SESSION['error']."</p>";
+                                            }
+                                            if (isset($_SESSION['success'])){
+                                                echo "<p class='border border-success text-success'>".$_SESSION['success']."</p>";
+                                            }
+                                        ?>
+                                     </div>
+                                    <button class="btn btn-primary" id="submit_button" disabled type="submit">Send Message</button>
                                 </div>
 
                             </div>
@@ -1128,20 +1132,16 @@ if (isset($_SESSION['error'])) {
         }
     </script>
     <script>
-        cObj("registration_form").onsubmit = function (event){
-            event.preventDefault();
-            if (typeof grecaptcha === "undefined") {
-                alert("reCAPTCHA failed to load. Please refresh the page.");
-                return;
-            }
-            const form = this;
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3', { action: 'REGISTER' })
-                    .then(function (token) {
-                        cObj("recaptcha_token").value = token;
-                        form.submit();
-                    });
-            });
+        function onTurnstileSuccess(token) {
+            cObj('cf_turnstile_response').value = token;
+            cObj('submit_button').disabled = false;
+        }
+        function onTurnstileError(errorCode) {
+            console.error("Turnstile error:", errorCode);
+        }
+        function onTurnstileExpired() {
+            console.warn("Turnstile token expired");
+            cObj("expiry_handler").innerHTML = "<p class='border border-danger text-danger'>Page expired. Reload and try again!</p>";
         }
     </script>
 

@@ -282,47 +282,46 @@ require("../../assets/encrypt/functions.php");
         if (isset($_POST['name'])) {
             include ("../../connections/conn1.php");
             include ("../../connections/conn2.php");
-
+            
             // verify captcha
-            $token = $_POST['recaptcha_token'] ?? '';
+            $token = $_POST['cf_turnstile_response'] ?? '';
 
             if (!$token) {
-                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
+                $_SESSION['error'] = "<p class='text-danger'>Cannot verify at the moment. Please try again.</p>";
                 redirect("../../#contact");
                 exit();
             }
 
-            $secretKey = '6LcNKkgsAAAAAN2hmmVu3N6S_-Mav_eJjkHMkaNk';
+            $secretKey = '0x4AAAAAACOwrp5scq6HPFBYU5ReusFgiys';
 
+            $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+            $remote_ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'];
             $data = [
-                'secret'   => $secretKey,
+                'secret' => $secretKey,
                 'response' => $token,
-                'remoteip' => $_SERVER['REMOTE_ADDR']
+                'remoteip' => $remote_ip
             ];
 
             $options = [
                 'http' => [
-                    'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
-                    'method'  => 'POST',
-                    'content' => http_build_query($data),
-                    'timeout' => 10
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data)
                 ]
             ];
 
             $context = stream_context_create($options);
-            $result  = file_get_contents(
-                'https://www.google.com/recaptcha/api/siteverify',
-                false,
-                $context
-            );
+            $response = file_get_contents($url, false, $context);
 
-            $response = json_decode($result, true);
-            if (
-                !$response['success'] ||
-                $response['score'] < 0.5 ||
-                $response['action'] !== 'REGISTER'
-            ) {
-                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
+            if ($response === FALSE) {
+                $_SESSION['error'] = "<p class='text-danger'>Cannot verify at the moment. Please try again.</p>";
+                redirect("../../#contact");
+                exit();
+            }
+            $response = json_decode($response, true);
+
+            if (empty($response['success'])) {
+                $_SESSION['error'] = "<p class='text-danger'>Cannot verify at the moment. Please try again.</p>";
                 redirect("../../#contact");
                 exit();
             }
@@ -487,45 +486,43 @@ require("../../assets/encrypt/functions.php");
             $_SESSION['username'] = $username;
 
             // verify captcha
-            $token = $_POST['recaptcha_token'] ?? '';
+            $token = $_POST['cf_turnstile_response'] ?? '';
 
             if (!$token) {
-                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
+                $_SESSION['error'] = "<p class='text-danger'>Cannot verify at the moment. Please try again.</p>";
                 redirect("../../timetable-signup.php");
                 exit();
             }
 
-            $secretKey = '6LcNKkgsAAAAAN2hmmVu3N6S_-Mav_eJjkHMkaNk';
+            $secretKey = '0x4AAAAAACOwrp5scq6HPFBYU5ReusFgiys';
 
+            $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
             $data = [
-                'secret'   => $secretKey,
+                'secret' => $secretKey,
                 'response' => $token,
                 'remoteip' => $_SERVER['REMOTE_ADDR']
             ];
 
             $options = [
                 'http' => [
-                    'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
-                    'method'  => 'POST',
-                    'content' => http_build_query($data),
-                    'timeout' => 10
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data)
                 ]
             ];
 
             $context = stream_context_create($options);
-            $result  = file_get_contents(
-                'https://www.google.com/recaptcha/api/siteverify',
-                false,
-                $context
-            );
+            $response = file_get_contents($url, false, $context);
 
-            $response = json_decode($result, true);
-            if (
-                !$response['success'] ||
-                $response['score'] < 0.5 ||
-                $response['action'] !== 'REGISTER'
-            ) {
-                $_SESSION['error'] = "<p class='text-danger'>Captcha verification failed. Please try again.</p>";
+            if ($response === FALSE) {
+                $_SESSION['error'] = "<p class='text-danger'>Cannot verify at the moment. Please try again.</p>";
+                redirect("../../timetable-signup.php");
+                exit();
+            }
+            $response = json_decode($response, true);
+
+            if (empty($response['success'])) {
+                $_SESSION['error'] = "<p class='text-danger'>Cannot verify at the moment. Please try again.</p>";
                 redirect("../../timetable-signup.php");
                 exit();
             }

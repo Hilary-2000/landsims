@@ -246,7 +246,9 @@ session_start();
             margin-bottom: 0;
         }
     </style>
-    <script src="https://www.google.com/recaptcha/api.js?render=6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3"></script>
+
+    <!-- Turnstile -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 
 <body>
@@ -444,8 +446,17 @@ session_start();
                                 <input type="password" class="form-control" name="password_2" placeholder="Repeat Password" required>
                             </div>
 
+                            <div class="cf-turnstile"
+                                data-sitekey="0x4AAAAAACOwrvcgUtNUu9B6"
+                                data-callback="onTurnstileSuccess"
+                                data-error-callback="onTurnstileError"
+                                data-expired-callback="onTurnstileExpired">
+                            </div>
+
+                            <input type="hidden" name="cf_turnstile_response" id="cf_turnstile_response">
+
                             <div class="col-md-12 text-center">
-                                <div><?php
+                                <div id="expiry_handler"><?php
                                         if (isset($_SESSION['error'])) {
                                             echo "<p class='border border-danger text-danger'>" . $_SESSION['error'] . "</p>";
                                         }
@@ -454,7 +465,7 @@ session_start();
                                         }
                                         ?>
                                 </div>
-                                <button class="btn btn-primary" type="submit"><i class="bi bi-person-plus"></i> Register</button>
+                                <button class="btn btn-primary" id='submit_button' disabled type="submit"><i class="bi bi-person-plus"></i> Register</button>
                                 <a href="https://timetablegenerator.ladybirdsmis.com/timetable_generator/login.php" class="btn btn-outline-success"><i class="bi bi-box-arrow-in-right"></i> Sign In</a>
                             </div>
 
@@ -598,20 +609,16 @@ session_start();
         }
     </script>
     <script>
-        cObj("registration_form").onsubmit = function (event){
-            event.preventDefault();
-            if (typeof grecaptcha === "undefined") {
-                alert("reCAPTCHA failed to load. Please refresh the page.");
-                return;
-            }
-            const form = this;
-            grecaptcha.ready(function () {
-                grecaptcha.execute('6LcNKkgsAAAAAPFA2_rrTJvG9WjS5g_mGaqOg1n3', { action: 'REGISTER' })
-                    .then(function (token) {
-                        cObj("recaptcha_token").value = token;
-                        form.submit();
-                    });
-            });
+        function onTurnstileSuccess(token) {
+            cObj('cf_turnstile_response').value = token;
+            cObj('submit_button').disabled = false;
+        }
+        function onTurnstileError(errorCode) {
+            console.error("Turnstile error:", errorCode);
+        }
+        function onTurnstileExpired() {
+            console.warn("Turnstile token expired");
+            cObj("expiry_handler").innerHTML = "<p class='border border-danger text-danger'>Page expired. Reload and try again!</p>";
         }
     </script>
 </body>
