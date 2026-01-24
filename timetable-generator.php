@@ -283,7 +283,7 @@ session_start();
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h1 data-aos="fade-up">Ladybird Online Timetable Generator</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">Generate conflict free class, block and teacher timetable online in just a few minutes using our robust timetable generator. <br>In just <span class="badge bg-success">5 simple</span> steps your timetable will be ready.</h2>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Generate conflict free class, block and teacher timetable online in just a few minutes using our robust timetable generator. <br>In just <span class="badge bg-success">5 simple</span> steps this will help you design timetable for your school.</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center text-lg-start">
                             <a href="timetable-signup.php" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -318,7 +318,7 @@ session_start();
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
                         <div class="steps-content">
                             <h2>5 Step Guide</h2>
-                            <p>This 5 step guide helps you generate your timetable efficiently and allows you to share it with your teachers, students, and the administrative circle. Once you have your information setup you will continue generating timetables as many times as you wish.</p>
+                            <p>This 5 step guide helps you generate your timetable efficiently and allows you to share it with your teachers, students, and the administrative circle. Once you have your information setup you will continue generating timetables as many times as you wish. <br>You wish you knew about this timetabling software for schools earlier.</p>
                             <p><b>Note:</b><br> Suitable for primary schools, junior and senior secondary schools <u><b>excluding</b></u> tertiary institutions.</p>
                             <div class="steps-cta">
                                 <a href="timetable-signup.php" class="btn btn-primary">Create Account <i class="bi bi-arrow-right"></i></a>

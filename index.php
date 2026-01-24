@@ -8,10 +8,10 @@ session_start();
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>CBC Compliant School Management System | Ladybird School Management System</title>
-    <meta content="Ladybird School Management System is the best School Management System in Kenya, with an array of portals for the school administrators and its community at large" name="description">
+    <title>Free School Management System | Ladybird School Management System</title>
+    <meta content="Ladybird School Management System is the best School Management System in Kenya, compliant with the cbc curricullum and others. It`s easy to use and highly customizable." name="description">
 
-    <meta content="Ladybird School Management System, Best Management System, SMIS, Ladybird SMIS, School management Systems in Kenya" name="keywords">
+    <meta content="Free School Management System, Ladybird School Management System, Best Management System, SMIS, Ladybird SMIS, School management Systems in Kenya" name="keywords">
 
     <!-- Favicons -->
     <link href="assets/img/logo2.png" rel="icon">
@@ -117,7 +117,7 @@ session_start();
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center">
                     <h1 data-aos="fade-up">We offer Modern Software Solutions for Schools in Kenya</h1>
-                    <h2 data-aos="fade-up" data-aos-delay="400">We have always wanted to bring the best of technology for schools that could offer to help in managment and overlooking all the activities in the school.</h2>
+                    <h2 data-aos="fade-up" data-aos-delay="400">Our goal is to provide schools with reliable technology that improves management efficiency and gives administrators full oversight of academic and operational activities through a single school management system.</h2>
                     <div data-aos="fade-up" data-aos-delay="600">
                         <div class="text-center text-lg-start">
                             <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
@@ -146,12 +146,12 @@ session_start();
                     <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
                         <div class="content">
                             <h3>Who Are We</h3>
-                            <h2>We offer the best School ERP System for schools in Kenya.</h2>
+                            <h2>We offer the best School Management System for schools in Kenya.</h2>
                             <p>
-                                Apart from it supporting other curricullums like IGCSE and ACE, Ladybird School System is fully aligned with Kenya’s Competency-Based Curriculum (CBC) requirements as set by KICD (Kenya Institute of Curriculum Development).
+                                Ladybird School Management System supports IGCSE and ACE while remaining fully aligned with Kenya’s Competency-Based Curriculum (CBC) standards established by KICD.
                             </p>
                             <p>
-                                Timetable generation has always been a tedious task, but not anymore with the Ladybird School System. Generate your timetable in minutes using our ladybird online timetable generator. Try it now <a href="timetable-generator.php" target="_blank" class="badge bg-success">Online Timatable Generator <i class="bi bi-box-arrow-up-right"></i></a>
+                                Ladybird School Management System includes an online timetable generator that allows schools to create and manage timetables quickly and efficiently. Try it now <a href="timetable-generator.php" target="_blank" class="badge bg-success">Online Timatable Generator <i class="bi bi-box-arrow-up-right"></i></a>
                             </p>
                             <!-- <div class="text-center text-lg-start">
                                 <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
@@ -188,7 +188,7 @@ session_start();
                         <div class="box">
                             <img src="assets/img/values-1.png" class="img-fluid" alt="">
                             <h3>Integrity</h3>
-                            <p>We believe that strong ethics is a priority for everyone represnting the organization and the quality of honesty and having strong moral principles.</p>
+                            <p>We believe that strong ethics is a priority for everyone representing the organization and the quality of honesty and having strong moral principles.</p>
                         </div>
                     </div>
 
@@ -362,7 +362,7 @@ session_start();
 
                 <header class="section-header">
                     <h2>Detailed Features</h2>
-                    <p>Understand More Of What We Offer</p>
+                    <p>Understand More About Modules</p>
                 </header>
 
                 <div class="row gy-4">
@@ -371,7 +371,7 @@ session_start();
                         <div class="service-box blue">
                             <i class="ri-discuss-line icon"></i>
                             <h3>Administration Module</h3>
-                            <p>A compulsory module that centralizes student, parent, and staff registration, ensuring accurate records, secure access, and smooth school operations. Students can also be assigned admission numbers manually or automatically.</p>
+                            <p>This core module centralizes student, parent, and staff registration, ensuring accurate school records, secure system access, and efficient day-to-day operations. The system supports both manual and automatic assignment of student admission numbers.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -380,7 +380,7 @@ session_start();
                         <div class="service-box orange">
                             <i class="ri-discuss-line icon"></i>
                             <h3>Finance Module</h3>
-                            <p>Automates fee collection through M-Pesa, sends instant confirmation messages with downloadable receipts, and delivers real-time financial visibility..</p>
+                            <p>The system automates school fee collection through M-Pesa, sends instant payment confirmations with downloadable receipts, and provides real-time financial visibility. It also enables schools to manage and track expenses efficiently, ensuring full oversight of both income and expenditure.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -389,7 +389,7 @@ session_start();
                         <div class="service-box green">
                             <i class="ri-discuss-line icon"></i>
                             <h3>Communication Module.</h3>
-                            <p>delivers reliable school-wide messaging with unlimited SMS for full subscribers and a generous SMS bundle for partial subscriptions of 2500 SMS per term and extras charged at Ksh 1 per sms sent.</p>
+                            <p>The system provides reliable school-wide communication through bulk SMS messaging, offering unlimited SMS for full subscribers and a bundled allocation of 2,500 SMS per term for partial subscriptions, with additional messages charged at KSh 1 per SMS.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -398,7 +398,7 @@ session_start();
                         <div class="service-box red">
                             <i class="ri-discuss-line icon"></i>
                             <h3>Transport Module</h3>
-                            <p>Manage your fleets, the routes/zones they cover and the students enrolled in each route.</p>
+                            <p>This module supports efficient school transport management by allowing administrators to oversee fleets, define routes and zones, and assign students to specific transport routes.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -407,7 +407,7 @@ session_start();
                         <div class="service-box purple">
                             <i class="ri-discuss-line icon"></i>
                             <h3>Human Resource Module.</h3>
-                            <p>Manage employees information, process salaries, manage leaves and generate compliance reports like KRA, NITA, SHIF. etc.</p>
+                            <p>Manage employee records, process payroll, handle staff leave management, and generate statutory compliance reports including KRA, NITA, and SHIF through an integrated HR and payroll management system.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
@@ -416,7 +416,7 @@ session_start();
                         <div class="service-box pink">
                             <i class="ri-discuss-line icon"></i>
                             <h3>Boarding Module</h3>
-                            <p>The Boarding Module streamlines dormitory management, enhances student safety, and ensures accurate tracking of boarding records giving you full control and parents complete peace of mind</p>
+                            <p>The boarding management module simplifies dormitory administration, enhances student safety, and ensures accurate boarding records, giving schools full operational control and parents complete peace of mind.</p>
                             <!-- <a href="#" class="read-more"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> -->
                         </div>
                     </div>
