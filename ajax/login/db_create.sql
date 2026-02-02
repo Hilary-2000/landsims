@@ -237,6 +237,8 @@ CREATE TABLE `dorm_list` (
 
 CREATE TABLE `email_address` (
   `id` int(11) NOT NULL,
+  `email_status` varchar(200) NOT NULL DEFAULT 'pending',
+  `processing_id` int(11) NOT NULL DEFAULT 0,
   `sender_from` varchar(500) DEFAULT NULL,
   `recipient_to` varchar(500) DEFAULT NULL,
   `bcc` varchar(500) DEFAULT NULL,
@@ -616,6 +618,8 @@ INSERT INTO `sms_api` (`sms_api_key`, `patner_id`, `short_code`, `username`, `us
 CREATE TABLE `sms_table` (
   `send_id` int(11) NOT NULL,
   `message_count` int(11) NOT NULL,
+  `message_status` varchar(200) NOT NULL DEFAULT 'pending',
+  `processing_id` int(11) NOT NULL DEFAULT 0,
   `message_sent_succesfully` int(11) NOT NULL,
   `message_undelivered` int(11) NOT NULL,
   `message_type` varchar(100) NOT NULL,
