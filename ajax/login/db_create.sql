@@ -7,8 +7,6 @@
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.1.25
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -35,15 +33,6 @@ CREATE TABLE `academic_calendar` (
   `id` int(11) NOT NULL,
   `academic_year` varchar(10) DEFAULT NULL
 );
-
---
--- Dumping data for table `academic_calendar`
---
-
-INSERT INTO `academic_calendar` (`term`, `start_time`, `end_time`, `closing_date`, `id`, `academic_year`) VALUES
-('TERM_1', '2025-01-01', '2025-04-30', '2025-04-30', 1, '2022'),
-('TERM_2', '2025-05-01', '2025-08-31', '2025-08-31', 2, '2022'),
-('TERM_3', '2025-09-01', '2025-12-31', '2025-12-31', 3, '2022');
 
 -- --------------------------------------------------------
 
@@ -108,7 +97,10 @@ CREATE TABLE `attendancetable` (
   `admission_no` varchar(100) DEFAULT NULL,
   `class` varchar(100) NOT NULL,
   `date` date NOT NULL,
-  `signedby` varchar(40) NOT NULL
+  `check_in` varchar(200) DEFAULT NULL,
+  `check_out` varchar(200) DEFAULT NULL,
+  `signedby` varchar(40) NOT NULL,
+  `sms_sent` int(11) NOT NULL DEFAULT 1
 );
 
 --
@@ -431,7 +423,7 @@ CREATE TABLE `library_notifications` (
   `notification_id` int(11) NOT NULL,
   `notification_title` varchar(1000) NOT NULL,
   `notification_content` longtext NOT NULL,
-  `notification_action` longtext NOT NULL,
+  `notification_action` longtext NOT NULL DEFAULT json_array(),
   `date_created` varchar(100) NOT NULL,
   `book_id` varchar(200) NOT NULL COMMENT 'this value will be used to associate a book to the notification  so that if the book was die for checkin the book id will be added here and when the book is checked out this notification will be delete by the system,',
   `notification_type` int(11) NOT NULL DEFAULT 1
@@ -475,7 +467,7 @@ CREATE TABLE `mpesa_transactions` (
   `mpesa_id` varchar(200) DEFAULT NULL,
   `amount` int(11) DEFAULT NULL,
   `std_adm` varchar(200) DEFAULT NULL,
-  `assigned_transaction` int(11) DEFAULT NULL,
+  `assigned_transaction` varchar(500) DEFAULT NULL,
   `balance` int(11) DEFAULT NULL,
   `transaction_time` varchar(200) DEFAULT NULL,
   `short_code` varchar(25) DEFAULT NULL,
@@ -569,24 +561,6 @@ CREATE TABLE `settings` (
   `id` int(11) NOT NULL
 );
 
---
--- Dumping data for table `settings`
---
-
-INSERT INTO `settings` (`sett`, `valued`, `id`) VALUES
-('admissionessentials', '', 1),
-('class', 'Grade 1,Grade 2,Grade 3,Grade 4,Grade 5,Grade 6,Grade 7,Grade 8,Grade 9', 2),
-('lastadmgen', '1', 5),
-('user_roles', '[]', 6),
-('clubs/sports_house', '[]', 7),
-('email_setup', '{\"sender_name\":\"Ladybird Softech Co.\",\"email_host_addr\":\"mail.privateemail.com\",\"email_username\":\"mail@ladybirdsmis.com\",\"email_password\":\"H1l@ryNgige\",\"tester_mail\":\"hilaryme45@gmail.com\"}', 8),
-('working_days', 'Tue,Wed,Thur,Fri,Sat,Mon', 9),
-('last_acad_yr', '[{\"TERM_1\":{\"START_DATE\":\"2022-04-25\",\"END_DATE\":\"2022-07-11\"},\"TERM_2\":{\"START_DATE\":\"2022-07-12\",\"END_DATE\":\"2022-09-25\"},\"TERM_3\":{\"START_DATE\":\"2022-09-25\",\"END_DATE\":\"2022-12-31\"}},{\"TERM_1\":{\"START_DATE\":\"2023-01-01\",\"END_DATE\":\"2023-04-30\"},\"TERM_2\":{\"START_DATE\":\"2023-05-01\",\"END_DATE\":\"2023-08-31\"},\"TERM_3\":{\"START_DATE\":\"2023-09-01\",\"END_DATE\":\"2023-12-31\"}},{\"TERM_1\":{\"START_DATE\":\"2024-01-01\",\"END_DATE\":\"2024-04-30\"},\"TERM_2\":{\"START_DATE\":\"2024-05-01\",\"END_DATE\":\"2024-08-31\"},\"TERM_3\":{\"START_DATE\":\"2024-09-01\",\"END_DATE\":\"2024-12-31\"}}]', 10),
-('payment details', '[]', 11),
-('expense categories', '[]', 12),
-('departments', '[]', 13),
-('libraries', '[{\"id\":\"1\",\"Name\":\"Primary Library\"}]', 14);
-
 -- --------------------------------------------------------
 
 --
@@ -601,13 +575,6 @@ CREATE TABLE `sms_api` (
   `user_id` int(11) NOT NULL,
   `send_sms_url` varchar(1000) DEFAULT NULL
 );
-
---
--- Dumping data for table `sms_api`
---
-
-INSERT INTO `sms_api` (`sms_api_key`, `patner_id`, `short_code`, `username`, `user_id`, `send_sms_url`) VALUES
-('c495f4ec19357b49b5a5a6d47b86f97c', '700', 'LADYBIRD', 'softtech', 1, 'https://isms.celcomafrica.com/api/services/sendsms');
 
 -- --------------------------------------------------------
 
@@ -635,6 +602,26 @@ CREATE TABLE `sms_table` (
 -- Table structure for table `student_data`
 --
 
+--
+-- Table structure for table `staff_attendance`
+--
+
+CREATE TABLE `staff_attendance` (
+  `attendance_id` int(11) NOT NULL,
+  `staff_id` int(11) DEFAULT NULL,
+  `date` varchar(200) DEFAULT NULL,
+  `check_in` varchar(200) DEFAULT NULL,
+  `check_out` varchar(200) DEFAULT NULL,
+  `signed_by` varchar(200) DEFAULT NULL,
+  `sms_sent` int(11) DEFAULT NULL
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `student_data`
+--
+
 CREATE TABLE `student_data` (
   `surname` varchar(100) DEFAULT NULL,
   `first_name` varchar(100) DEFAULT NULL,
@@ -644,6 +631,7 @@ CREATE TABLE `student_data` (
   `gender` varchar(6) DEFAULT NULL,
   `stud_class` varchar(300) DEFAULT NULL,
   `adm_no` varchar(200) NOT NULL,
+  `biometric_number` varchar(200) DEFAULT NULL,
   `assesment_number` varchar(500) DEFAULT NULL,
   `D_O_A` date DEFAULT NULL,
   `parentName` varchar(100) DEFAULT NULL,
@@ -674,6 +662,7 @@ CREATE TABLE `student_data` (
   `source_funding` varchar(255) DEFAULT NULL,
   `clubs_id` varchar(500) DEFAULT NULL,
   `student_image` mediumtext DEFAULT NULL,
+  `photo_update_flag` int(11) NOT NULL DEFAULT 0,
   `transfered_comment` mediumtext DEFAULT NULL,
   `discount_percentage` varchar(255) DEFAULT '0',
   `discount_value` varchar(255) DEFAULT '0',
@@ -681,7 +670,8 @@ CREATE TABLE `student_data` (
   `primary_parent_password` varchar(500) DEFAULT 'null',
   `secondary_parent_password` varchar(500) DEFAULT 'null',
   `subjects_attempting` varchar(2000) NOT NULL DEFAULT '[]',
-  `votehead_status` varchar(5000) NOT NULL DEFAULT '[]'
+  `votehead_status` varchar(5000) NOT NULL DEFAULT '[]',
+  `mpesa_sms_preference` varchar(20) NOT NULL DEFAULT 'both_parent'
 );
 
 CREATE TABLE `table_subject` (
@@ -966,6 +956,12 @@ ALTER TABLE `sms_table`
   ADD PRIMARY KEY (`send_id`);
 
 --
+-- Indexes for table `staff_attendance`
+--
+ALTER TABLE `staff_attendance`
+  ADD PRIMARY KEY (`attendance_id`);
+
+--
 -- Indexes for table `student_data`
 --
 ALTER TABLE `student_data`
@@ -1009,237 +1005,241 @@ ALTER TABLE `van_routes`
 -- AUTO_INCREMENT for table `academic_calendar`
 --
 ALTER TABLE `academic_calendar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `advance_pay`
 --
 ALTER TABLE `advance_pay`
-  MODIFY `advance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `advance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `apply_leave`
 --
 ALTER TABLE `apply_leave`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `assignments`
 --
 ALTER TABLE `assignments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `attendancetable`
 --
 ALTER TABLE `attendancetable`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `behaviour_comment`
 --
 ALTER TABLE `behaviour_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `behaviour_goal`
 --
 ALTER TABLE `behaviour_goal`
-  MODIFY `behaviour_goal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `behaviour_goal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `behaviour_objective`
 --
 ALTER TABLE `behaviour_objective`
-  MODIFY `behaviour_objective_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `behaviour_objective_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `behaviour_scores`
 --
 ALTER TABLE `behaviour_scores`
-  MODIFY `behaviour_scores_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `behaviour_scores_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `boarding_list`
 --
 ALTER TABLE `boarding_list`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `book_circulation`
 --
 ALTER TABLE `book_circulation`
-  MODIFY `circulation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `circulation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `chat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `dorm_list`
 --
 ALTER TABLE `dorm_list`
-  MODIFY `dorm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `dorm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `email_address`
 --
 ALTER TABLE `email_address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `exams_tbl`
 --
 ALTER TABLE `exams_tbl`
-  MODIFY `exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `exams_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `exam_record_tbl`
 --
 ALTER TABLE `exam_record_tbl`
-  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `result_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
-  MODIFY `expid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `expid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `fees_credit_note`
 --
 ALTER TABLE `fees_credit_note`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `fees_structure`
 --
 ALTER TABLE `fees_structure`
-  MODIFY `ids` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `ids` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `finance`
 --
 ALTER TABLE `finance`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `leave_categories`
 --
 ALTER TABLE `leave_categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `lesson_plan`
 --
 ALTER TABLE `lesson_plan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `library_details`
 --
 ALTER TABLE `library_details`
-  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `library_notifications`
 --
 ALTER TABLE `library_notifications`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `message_n_alert`
 --
 ALTER TABLE `message_n_alert`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `mpesa_transactions`
 --
 ALTER TABLE `mpesa_transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `parent_account_payment`
 --
 ALTER TABLE `parent_account_payment`
-  MODIFY `transaction_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `transaction_id` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `payroll_information`
 --
 ALTER TABLE `payroll_information`
-  MODIFY `payroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `payroll_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `questionbanks`
 --
 ALTER TABLE `questionbanks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `salary_payment`
 --
 ALTER TABLE `salary_payment`
-  MODIFY `pay_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `pay_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `sms_api`
 --
 ALTER TABLE `sms_api`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `sms_table`
 --
 ALTER TABLE `sms_table`
-  MODIFY `send_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `send_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+--
+-- AUTO_INCREMENT for table `staff_attendance`
+--
+ALTER TABLE `staff_attendance`
+  MODIFY `attendance_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `student_data`
 --
 ALTER TABLE `student_data`
-  MODIFY `ids` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `ids` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `table_subject`
 --
 ALTER TABLE `table_subject`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `tblnotification`
 --
 ALTER TABLE `tblnotification`
-  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `notification_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `template_messages`
 --
 ALTER TABLE `template_messages`
-  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 --
 -- AUTO_INCREMENT for table `transport_enrolled_students`
 --
 ALTER TABLE `transport_enrolled_students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
-COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
