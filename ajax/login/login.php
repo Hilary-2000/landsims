@@ -592,12 +592,22 @@ require("../../assets/encrypt/functions.php");
                         $_SESSION['databasename'] = $school_db;
                         include_once("../../connections/conn2.php");
                         // IMPORT DATABASE STRUCTURE FROM A FILE
-                        $sql_file = __DIR__ . "/db_create.sql";
-                        $mysql_bin = file_exists("/opt/lampp/bin/mysql") ? "/opt/lampp/bin/mysql" : "mysql";
-                        $cmd = $mysql_bin . " -u root -h localhost " . escapeshellarg($school_db) . " < " . escapeshellarg($sql_file) . " 2>&1";
-                        exec($cmd, $exec_output, $return_code);
-                        if($return_code !== 0){
-                            $_SESSION['error'] = "<p class='text-danger'>An error occured while creating your account database!<br>Try again later.</p>";
+                        $lines = file(__DIR__ . "/db_create.sql", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+                        $statement = '';
+                        $import_failed = false;
+                        foreach ($lines as $line) {
+                            if (strpos(ltrim($line), '--') === 0) continue;
+                            $statement .= $line . "\n";
+                            if (substr(rtrim($line), -1) === ';') {
+                                if ($conn2->query(trim($statement)) === false) {
+                                    $import_failed = true;
+                                    break;
+                                }
+                                $statement = '';
+                            }
+                        }
+                        if($import_failed){
+                            $_SESSION['error'] = "<p class='text-danger'>An error occured while creating your account!<br>Try again.</p>";
                             // delete the school information
                             $delete = "DELETE FROM `school_information` WHERE `school_code` = ?";
                             $stmt = $conn->prepare($delete);
