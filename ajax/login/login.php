@@ -592,8 +592,11 @@ require("../../assets/encrypt/functions.php");
                         $_SESSION['databasename'] = $school_db;
                         include_once("../../connections/conn2.php");
                         // IMPORT DATABASE STRUCTURE FROM A FILE
-                        $sql = file_get_contents("db_create.sql");
-                        if(!$conn2->multi_query($sql)){
+                        $sql_file = __DIR__ . "/db_create.sql";
+                        $mysql_bin = file_exists("/opt/lampp/bin/mysql") ? "/opt/lampp/bin/mysql" : "mysql";
+                        $cmd = $mysql_bin . " -u root -h localhost " . escapeshellarg($school_db) . " < " . escapeshellarg($sql_file) . " 2>&1";
+                        exec($cmd, $exec_output, $return_code);
+                        if($return_code !== 0){
                             $_SESSION['error'] = "<p class='text-danger'>An error occured while creating your account database!<br>Try again later.</p>";
                             // delete the school information
                             $delete = "DELETE FROM `school_information` WHERE `school_code` = ?";
