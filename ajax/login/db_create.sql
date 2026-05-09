@@ -560,6 +560,25 @@ CREATE TABLE `settings` (
   `valued` mediumtext NOT NULL,
   `id` int(11) NOT NULL
 );
+--
+-- Dumping data for table `settings`
+--
+
+INSERT INTO `settings` (`sett`, `valued`, `id`) VALUES
+('admissionessentials', '', 1),
+('class', '', 2),
+('lastadmgen', '1', 5),
+('user_roles', '[]', 6),
+('clubs/sports_house', '[]', 7),
+('email_setup', '', 8),
+('working_days', 'Tue,Wed,Thur,Fri,Sat,Mon', 9),
+('last_acad_yr', '[]', 10),
+('payment details', '[]', 11),
+('expense categories', '[]', 12),
+('departments', '[]', 13),
+('libraries', '[]', 14),
+('staff_absent_reminder_time', '12:00', 15),
+('SMS_ATTENDACE_OPTIONS', 'present', 16);
 
 -- --------------------------------------------------------
 

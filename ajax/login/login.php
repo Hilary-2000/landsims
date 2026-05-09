@@ -561,7 +561,7 @@ require("../../assets/encrypt/functions.php");
             }
 
             // proceed and register the school and the user
-            $insert = "INSERT INTO school_information (`school_profile_image`, `school_code`, `school_domain`, `school_name`, `sch_message_name`, `school_motto`, `school_admin_name`, `school_contact`, `school_mail`, `school_location`,`database_name`, `activated`, `sch_vision`, `sch_mission`, `county`, `country`, `physicall_address`, `website_name`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            $insert = "INSERT INTO school_information (`school_profile_image`, `school_code`, `school_domain`, `school_name`, `sch_message_name`, `school_motto`, `school_admin_name`, `school_contact`, `school_mail`, `school_location`,`database_name`, `activated`, `sch_vision`, `sch_mission`, `county`, `country`, `physicall_address`, `website_name`, `from_time`, `to_time`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             $stmt = $conn->prepare($insert);
             $school_code = substr($phone_number,2);
             $school_db = $school_code."_db";
@@ -572,7 +572,9 @@ require("../../assets/encrypt/functions.php");
             $status = 0;
             $school_domain = "timetablegenerator.ladybirdsmis.com";
             $profile_image = "images/sch_profiles/ladybird_image.png";
-            $stmt->bind_param("ssssssssssssssssss", $profile_image, $school_code, $school_domain, $school_name, $n_a, $motto, $fullname, $phone_number, $email, $n_a, $school_db, $status, $vision, $mission, $school_county, $school_country, $school_county, $n_a);
+            $from_time = "08:00";
+            $to_time = "17:00";
+            $stmt->bind_param("ssssssssssssssssssss", $profile_image, $school_code, $school_domain, $school_name, $n_a, $motto, $fullname, $phone_number, $email, $n_a, $school_db, $status, $vision, $mission, $school_county, $school_country, $school_county, $n_a, $from_time, $to_time);
             if ($stmt->execute()) {
                 // register the user
                 $insert = "INSERT INTO user_tbl (`fullname`, `tt_code`, `dob`, `doe`, `school_code`, `phone_number`, `gender`, `address`, `nat_id`, `tsc_no`, `username`, `password`, `auth`, `email`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
