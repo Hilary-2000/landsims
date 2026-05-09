@@ -423,7 +423,7 @@ CREATE TABLE `library_notifications` (
   `notification_id` int(11) NOT NULL,
   `notification_title` varchar(1000) NOT NULL,
   `notification_content` longtext NOT NULL,
-  `notification_action` longtext NOT NULL DEFAULT '[]',
+  `notification_action` longtext DEFAULT NULL,
   `date_created` varchar(100) NOT NULL,
   `book_id` varchar(200) NOT NULL COMMENT 'this value will be used to associate a book to the notification  so that if the book was die for checkin the book id will be added here and when the book is checked out this notification will be delete by the system,',
   `notification_type` int(11) NOT NULL DEFAULT 1
